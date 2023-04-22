@@ -70,13 +70,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a href="/tickets/ativos" class="nav-link text-white">
                             <i class="me-2 bi bi-ticket-perforated" style="font-size: 20px"></i>
                             Tickets Ativos
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a href="/tickets/todos" class="nav-link text-white">
                             <i class="me-2 bi bi-ticket-detailed" style="font-size: 20px"></i>
                             Todos os tickets
                         </a>
