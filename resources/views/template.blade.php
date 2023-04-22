@@ -51,7 +51,7 @@
         @keyframes appaer{
             from {
                 opacity: 0;
-                transform: translateY(900px);
+                transform: translateX(900px);
             }
         }
     </style>
@@ -125,12 +125,6 @@
                         <strong>Username</strong>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">New project...</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
                         <li><a class="dropdown-item" href="#">Sign out</a></li>
                     </ul>
                 </div>
@@ -138,7 +132,9 @@
 
 
             <main class="container-fluid mb-1 conteudo bg-cover" style="background-image: url('{{ asset('images/dark-theme.jpg') }}');">
-                <div class="p-5 container mt-4 bg-dark" id="border-main">
+                <div class="p-5 container mt-4 bg-dark" id="border-main"
+                style="border-radius: 20px; border: 1px solid gray;   box-shadow: 0px 5px 10px 0px gray;
+                ">
                     @yield('conteudo')
                 </div>
                 <footer style="left: 13%" class="fixed-bottom bg-white text-dark d-flex flex-wrap justify-content-between align-items-center py-1">
