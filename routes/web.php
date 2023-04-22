@@ -17,11 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', function() {
-    return view('adminPanel');
-});
-
 Route::get('/vagas', 'App\Http\Controllers\VagasController@listar');
+Route::get('/clientes', 'App\Http\Controllers\ClienteController@listar');
 
 Route::get('/admin', function() {
     return view('adminPanel');
