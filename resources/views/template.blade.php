@@ -30,11 +30,11 @@
 </head>
 
 
-<body onload="carregarTema()">
+<body>
     <div class="">
         <div class="bg-dark text-white d-flex">
 
-            <div class="d-flex flex-column flex-shrink-0 p-2 text-white bg-primary vh-100" style="width: 13%;">
+            <div class="d-flex flex-column flex-shrink-0 p-2 text-white bg-primary vh-100" style="width: 13%; z-index: 999;">
                 <div class="row text-center">
                     <a href="/"
                         class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -109,8 +109,8 @@
             </div>
 
 
-            <main class="container-fluid mb-1 conteudo">
-                <div class="p-5 container mt-4" id="border-main">
+            <main class="container-fluid mb-1 conteudo bg-cover" style="background-image: url('{{ asset('images/dark-theme.jpg') }}');">
+                <div class="p-5 container mt-4 bg-dark" id="border-main">
                     @yield('conteudo')
                 </div>
                 <footer style="left: 13%" class="fixed-bottom bg-white text-dark d-flex flex-wrap justify-content-between align-items-center py-1">
