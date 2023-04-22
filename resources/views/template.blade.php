@@ -15,7 +15,6 @@
 
     <style>
         .bi {
-            vertical-align: -0.125em;
             fill: currentColor;
         }
     </style>
@@ -24,8 +23,7 @@
 
 <body onload="carregarTema()">
     <div class="bg-dark text-white d-flex" style="height: 100%">
-        <div class="d-flex flex-column flex-shrink-0 p-2 text-white bg-primary"
-            style="width: 13%;">
+        <div class="d-flex flex-column flex-shrink-0 p-2 text-white bg-primary" style="width: 13%;">
             <div class="row text-center">
                 <a href="/"
                     class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -37,25 +35,25 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item ">
-                    <a href="#" class="nav-link text-white" aria-current="page">
+                    <a href="/admin" class="nav-link text-white" aria-current="page">
                         <i class="me-2 bi bi-wrench-adjustable" style="font-size: 20px"></i>
                         Painel Admin.
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="/vagas" class="nav-link text-white">
                         <i class="me-2 bi bi-p-circle" style="font-size: 20px"></i>
                         Vagas
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="/carros" class="nav-link text-white">
                         <i class="me-2 bi bi-car-front" style="font-size: 20px"></i>
                         Carros
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="/clientes" class="nav-link text-white">
                         <i class="me-2 bi bi-person" style="font-size: 20px"></i>
                         Clientes
                     </a>
@@ -83,8 +81,9 @@
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                     id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="" alt="" width="32" height="32" class="rounded-circle me-2">
-                    <strong>mdo</strong>
+                    <img src="https://avatars.githubusercontent.com/u/14907837?v=4" alt="" width="32"
+                        height="32" class="rounded-circle me-2">
+                    <strong>Username</strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                     <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -99,20 +98,21 @@
         </div>
 
         <main class="container-fluid mb-1">
-            <div class="p-5 border border-primary container mt-4" id="border-main">
+            <div class="p-5 container mt-4" id="border-main">
                 @yield('conteudo')
             </div>
         </main>
     </div>
 
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3">
-          <p class="col-md-4 mb-0 text-muted">© 2023 CutuCar, Inc</p>
-
-          <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><i class="bi bi-github"></i>
-            </a></li>
-          </ul>
-        </footer>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3">
+        <span class="col-md-4 mb-0 text-muted">© 2023 CutuCar, Inc</span>
+        <ul class="nav mb-0 col-md-4 justify-content-end">
+            <li class="nav-item ms-3 px-1 "><i class="bi bi-database">v1.0-postgres</i></li>
+            <li class="nav-item ms-3 px-1 "><i class="bi bi-file-diff">v0.2-laravel</i></li>
+            <li class="nav-item ms-3 px-1 "><a href="#" class="text-muted"><i
+                        class="bi bi-github">Github</i></a></li>
+        </ul>
+    </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
