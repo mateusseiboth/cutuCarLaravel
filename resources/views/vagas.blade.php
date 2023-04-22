@@ -7,7 +7,7 @@
     </h1>
 
     <a class="btn btn-primary" href="">Entrada de veiculo</a>
-    <div class='row vh-100 mb-2'>
+    <div class='row mb-2'>
         @foreach ($vagas as $vaga)
             <div class='col-md-2 d-flex align-items-stretch' style='margin-top: 2rem;'>
                 <div class='card col-md-12 text-dark'>
