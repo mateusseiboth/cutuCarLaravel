@@ -18,6 +18,15 @@
             fill: currentColor;
         }
 
+        .menuItem{
+            color: white;
+        }
+
+        .menuItem:hover{
+            color: black;
+            background-color: whitesmoke;
+        }
+
         .conteudo {
             position: fixed;
             top: 0;
@@ -25,6 +34,25 @@
             right: 0;
             bottom: 0;
             overflow-y: scroll;
+        }
+
+        .card{
+            border-radius: 10px;
+            border: 1px solid grey;
+            animation: appaer 400ms backwards;
+        }
+        .card:hover{
+            border-color:grey;
+            transition: border 300ms;
+            transform: scale(1.05);
+            transition: transform 300ms;
+        }
+
+        @keyframes appaer{
+            from {
+                opacity: 0;
+                transform: translateY(900px);
+            }
         }
     </style>
 </head>
@@ -46,43 +74,43 @@
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item ">
-                        <a href="/admin" class="nav-link text-white" aria-current="page">
+                        <a href="/admin" class="nav-link menuItem" aria-current="page">
                             <i class="me-2 bi bi-wrench-adjustable" style="font-size: 20px"></i>
                             Painel Admin.
                         </a>
                     </li>
                     <li>
-                        <a href="/vagas" class="nav-link text-white">
+                        <a href="/vagas" class="nav-link menuItem">
                             <i class="me-2 bi bi-p-circle" style="font-size: 20px"></i>
                             Vagas
                         </a>
                     </li>
                     <li>
-                        <a href="/carros" class="nav-link text-white">
+                        <a href="/carros" class="nav-link menuItem">
                             <i class="me-2 bi bi-car-front" style="font-size: 20px"></i>
                             Carros
                         </a>
                     </li>
                     <li>
-                        <a href="/clientes" class="nav-link text-white">
+                        <a href="/clientes" class="nav-link menuItem">
                             <i class="me-2 bi bi-person" style="font-size: 20px"></i>
                             Clientes
                         </a>
                     </li>
                     <li>
-                        <a href="/tickets/ativos" class="nav-link text-white">
+                        <a href="/tickets/ativos" class="nav-link menuItem">
                             <i class="me-2 bi bi-ticket-perforated" style="font-size: 20px"></i>
                             Tickets Ativos
                         </a>
                     </li>
                     <li>
-                        <a href="/tickets/todos" class="nav-link text-white">
+                        <a href="/tickets/todos" class="nav-link menuItem">
                             <i class="me-2 bi bi-ticket-detailed" style="font-size: 20px"></i>
                             Todos os tickets
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a href="#" class="nav-link menuItem">
                             <i class="me-2 bi bi-person-badge" style="font-size: 20px"></i>
                             Cadastrar Usuário
                         </a>
