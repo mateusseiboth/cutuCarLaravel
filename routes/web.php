@@ -22,8 +22,4 @@ Route::get('/clientes', 'App\Http\Controllers\ClienteController@listar');
 Route::get('/carros', 'App\Http\Controllers\CarroController@listar');
 Route::get('/tickets/ativos', 'App\Http\Controllers\TicketController@listarAtivos');
 Route::get('/tickets/todos', 'App\Http\Controllers\TicketController@listarTodos');
-
-
-Route::get('/admin', function() {
-    return view('adminPanel');
-});
+Route::get('/admin', 'App\Http\Controllers\AdminController@listar');
