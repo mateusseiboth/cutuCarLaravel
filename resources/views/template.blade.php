@@ -119,7 +119,7 @@
                         <strong>Username</strong>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><a class="dropdown-item" href="/deslogar">Deslogar</a></li>
                     </ul>
                 </div>
             </div>
