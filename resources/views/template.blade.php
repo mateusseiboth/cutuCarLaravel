@@ -109,12 +109,6 @@
                             Todos os tickets
                         </a>
                     </li>
-                    <li>
-                        <a href="#" class="nav-link menuItem">
-                            <i class="me-2 bi bi-person-badge" style="font-size: 20px"></i>
-                            Cadastrar Usuário
-                        </a>
-                    </li>
                 </ul>
                 <hr>
                 <div class="dropdown">
