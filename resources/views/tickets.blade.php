@@ -100,7 +100,8 @@
                 <div class="modal-body">
 
                     <!-- Formulário de inserção/edição de clientes -->
-                    <form method="POST" action="" id="form-client" name="form-client">
+                    <form method="POST" action="/ticket" id="form-client" name="form-client">
+                        @csrf
                         <input type="hidden" name="action" value="save_cliente">
                         <input type="hidden" name="id" value="">
 
@@ -151,10 +152,10 @@
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="bi bi-p-circle"></i>
                                 </span>
-                                <select name="tipo_id" class="form-select" aria-label="tipo_id">
-                                    <option selected name='tipo_id' value='-1'>Selecione uma vaga</option>
+                                <select name="vaga_id" class="form-select" aria-label="vaga_id">
+                                    <option selected name='vaga_id' value='-1'>Selecione uma vaga</option>
                                     @foreach ($vagas as $vaga)
-                                        <option name='tipo_id' value='{{ $vaga->id }}'>{{ $vaga->id }}
+                                        <option name='vaga_id' value='{{ $vaga->id }}'>{{ $vaga->id }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -180,8 +181,8 @@
             input.setAttribute("type", "text");
             input.setAttribute("name", "placa");
             input.setAttribute("class", "form-control");
-            input.setAttribute("placeholder", "Placa do carro");
-            input.value = select.options[select.selectedIndex].text;
+            input.setAttribute("placeholder", "");
+            input.value = "";
             select.parentNode.replaceChild(input, select);
         });
     </script>
