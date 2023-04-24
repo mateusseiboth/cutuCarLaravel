@@ -187,7 +187,7 @@
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="bi bi-p-circle"></i>
                                 </span>
-                                <select name="vaga_id" class="form-select" aria-label="vaga_id">
+                                <select name="vaga_id" class="form-select" id="select_box">
                                     <option selected name='vaga_id' value='-1'>Selecione uma vaga</option>
                                     @foreach ($vagas as $vaga)
                                         <option name='vaga_id' value='{{ $vaga->id }}'>{{ $vaga->id }}
@@ -207,6 +207,7 @@
             </div>
         </div>
     </div>
+
 
 
     <script>
@@ -230,25 +231,6 @@
                 $("#carro_id option").filter(function() {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
-            });
-        });
-    </script>
-
-    <script>
-        const selectDropdown = document.querySelector('.select-dropdown');
-        const selectSearch = document.querySelector('.select-search');
-
-        selectSearch.addEventListener('keyup', function() {
-            const searchValue = this.value.toLowerCase();
-
-            Array.from(selectDropdown.options).forEach(function(option) {
-                const optionText = option.textContent.toLowerCase();
-
-                if (optionText.indexOf(searchValue) !== -1) {
-                    option.setAttribute('aria-selected', 'true');
-                } else {
-                    option.setAttribute('aria-selected', 'false');
-                }
             });
         });
     </script>
