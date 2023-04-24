@@ -10,6 +10,38 @@
         /* borda esquerda pontilhada */
     }
 
+    .select-wrapper {
+        position: relative;
+    }
+
+    .select-search {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .select-dropdown {
+        width: 100%;
+        margin-top: 28px;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 14px;
+    }
+
+    .select-dropdown option {
+        display: none;
+    }
+
+    .select-dropdown option[aria-selected="true"] {
+        display: block;
+    }
+
     .nafrente {
         z-index: 99999;
     }
@@ -108,17 +140,20 @@
                         <div class="mb-3">
 
                             <label for="placa" class="form-label">Carro:</label>
-                            <div class="input-group col-mb-3">
+                            <div class="input-group select-wrapper fit-width col-mb-3">
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="bi bi-car-front"></i>
                                 </span>
-                                <select name="carro_id" class="form-select" aria-label="carro_id">
-                                    <option selected name='carro_id' value='-1'>Selecione um carro</option>
+
+                                <select class="form-select" id="datalistOptions" name="carro_id">
+                                    <option selected name="carro_id" value="-1">Selecione um carro</option>
                                     @foreach ($carros as $carro)
-                                        <option name='carro_id' value='{{ $carro->id }}'>{{ $carro->placa }}
+                                        <option data-tokens="{{ $carro->placa }}" name='carro_id'
+                                            value='{{ $carro->id }}'>{{ $carro->placa }}
                                         </option>
                                     @endforeach
                                 </select>
+
                             </div>
                             <div class="form-check mt-2 mb-2 ms-1">
                                 <input name="cadastrado" class="form-check-input" type="checkbox" id="placaCheck">
@@ -184,6 +219,37 @@
             input.setAttribute("placeholder", "");
             input.value = "";
             select.parentNode.replaceChild(input, select);
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function() {
+            $("#carro_id").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#carro_id option").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+    <script>
+        const selectDropdown = document.querySelector('.select-dropdown');
+        const selectSearch = document.querySelector('.select-search');
+
+        selectSearch.addEventListener('keyup', function() {
+            const searchValue = this.value.toLowerCase();
+
+            Array.from(selectDropdown.options).forEach(function(option) {
+                const optionText = option.textContent.toLowerCase();
+
+                if (optionText.indexOf(searchValue) !== -1) {
+                    option.setAttribute('aria-selected', 'true');
+                } else {
+                    option.setAttribute('aria-selected', 'false');
+                }
+            });
         });
     </script>
 @endsection
