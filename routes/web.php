@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+})->name('home')->middleware('App\Http\Middleware\CheckAuth');
 
 Route::get('/login', 'App\Http\Controllers\LoginController@login')->name('login');
 Route::get('/deslogar', 'App\Http\Controllers\LoginController@deslogar')->name('deslogar');
