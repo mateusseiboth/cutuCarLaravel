@@ -39,7 +39,7 @@
 </head>
 
 <body>
-    <section class="h-100 gradient-form"  style="background-image: url('{{ asset('images/dark-theme.jpg') }}');">
+    <section class="h-100 gradient-form" style="background-image: url('{{ asset('images/dark-theme.jpg') }}');">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
@@ -51,24 +51,26 @@
                                         <i class="bi bi-shield-check" style="font-size: 5rem;"></i>
                                         <h4 class="mt-1 mb-5 pb-1 mt-3">We are the "Confia" team</h4>
                                     </div>
-                                    <form action="{{url('login/')}}" method="POST">
+                                    <form action="{{ url('login/') }}" method="POST">
                                         @csrf
                                         <p>Por favor, faça login para continuar</p>
                                         <div class="form-outline mb-4">
-                                            <input name="username" type="text" id="form2Example11" class="form-control"
+                                            <input name="username" type="text" id="form2Example11"
+                                                class="form-control"
                                                 placeholder="Username fornecido pelo administrador" />
                                             <label class="form-label" for="form2Example11">Username</label>
 
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input name="password" type="password" placeholder="Senha fornecida pelo administrador"
-                                                id="form2Example22" class="form-control" />
+                                            <input name="password" type="password"
+                                                placeholder="Senha fornecida pelo administrador" id="form2Example22"
+                                                class="form-control" />
                                             <label class="form-label" for="form2Example22">Password</label>
                                         </div>
 
                                         <div class="text-center pt-1 mb-5 pb-1">
-                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                                            <button class="btn btn-primary btn-block fa-lg mb-3"
                                                 type="submit">Entrar</button>
                                             <a class="text-muted" href="#!">Esqueceu a senha?</a>
                                         </div>
@@ -76,7 +78,9 @@
 
                                 </div>
                             </div>
-                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                            <div class="col-lg-6 d-flex align-items-center"
+                                style=" background-size: cover;
+                                background-image: url('{{ asset('images/contemplative-reptile.jpeg') }}');">
                                 <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                                     <h4 class="mb-4">Somos mais que uma dupla, somos dois</h4>
                                     <p class="small mb-0">Juntando o conhecimento do Flávio em faltar aulas e a baixa
