@@ -16,7 +16,7 @@ class TicketController extends Controller
         $tickets = Ticket::where('estado', true)->orderByRaw('id')->get();
         $carros = Carro::orderBy('id')->get();
         $tipos = Tipo::orderBy('id')->get();
-        $vagas = Vagas::orderBy('id')->get();
+        $vagas = Vagas::where('estado', true)->orderBy('id')->get();
         return view('tickets',
                       compact('tickets', 'page', 'carros', 'tipos', 'vagas'));
     }
@@ -26,7 +26,7 @@ class TicketController extends Controller
         $tickets = Ticket::where('estado', false)->orderByRaw('id')->get();
         $carros = Carro::orderBy('id')->get();
         $tipos = Tipo::orderBy('id')->get();
-        $vagas = Vagas::where('estado', true)->orderByRaw('id')->get();
+        $vagas = Vagas::where('estado', true)->orderBy('id')->get();
         return view('tickets',
                       compact('tickets', 'page', 'carros', 'tipos', 'vagas'));
     }
