@@ -11,28 +11,9 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <style>
-        .gradient-custom-2 {
-            /* fallback for old browsers */
-            background: #fccb90;
 
-            /* Chrome 10-25, Safari 5.1-6 */
-            background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-
-            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-        }
-
-        @media (min-width: 768px) {
-            .gradient-form {
-                height: 100vh !important;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .gradient-custom-2 {
-                border-top-right-radius: .3rem;
-                border-bottom-right-radius: .3rem;
-            }
+        .ms-n5 {
+            margin-left: -40px;
         }
     </style>
 
@@ -63,10 +44,20 @@
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input name="password" type="password"
-                                                placeholder="Senha fornecida pelo administrador" id="form2Example22"
-                                                class="form-control" />
-                                            <label class="form-label" for="form2Example22">Password</label>
+                                            <div class="input-group">
+                                                <input name="password" type="password"
+                                                    placeholder="Senha fornecida pelo administrador" id="senha"
+                                                    class="form-control border-end-0 border">
+                                                <span class="input-group-append">
+                                                    <button id="password"
+                                                        class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
+                                                        type="button">
+                                                        <i id="icone" class="bi bi-eye"></i>
+                                                    </button>
+                                                </span>
+
+                                            </div>
+                                            <label class="form-label" for="senha">Password</label>
                                         </div>
 
                                         <div class="text-center pt-1 mb-5 pb-1">
@@ -109,4 +100,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
         integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script>
+
+    <script>
+        // Selecione o campo de senha e o botão
+        const senha = document.getElementById('senha');
+        const showPassword = document.getElementById('password');
+        const icone = document.getElementById('icone');
+        console.log(icone);
+        // Adicione um evento de clique ao botão
+        showPassword.addEventListener('click', function() {
+            // Alterne a visibilidade da senha
+            if (senha.type === 'password') {
+                senha.type = 'text';
+                icone.classList.remove('bi-eye');
+                icone.classList.add('bi-eye-slash');
+            } else {
+                senha.type = 'password';
+                icone.classList.remove('bi-eye-slash');
+                icone.classList.add('bi-eye');
+            }
+        });
+    </script>
+
 </body>
