@@ -18,11 +18,11 @@
             fill: currentColor;
         }
 
-        .menuItem{
+        .menuItem {
             color: white;
         }
 
-        .menuItem:hover{
+        .menuItem:hover {
             color: black;
             background-color: whitesmoke;
         }
@@ -36,19 +36,20 @@
             overflow-y: scroll;
         }
 
-        .card{
+        .card {
             border-radius: 10px;
             border: 1px solid grey;
             animation: appaer 400ms backwards;
         }
-        .card:hover{
-            border-color:grey;
+
+        .card:hover {
+            border-color: grey;
             transition: border 300ms;
             transform: scale(1.05);
             transition: transform 300ms;
         }
 
-        @keyframes appaer{
+        @keyframes appaer {
             from {
                 opacity: 0;
                 transform: translateX(900px);
@@ -62,7 +63,8 @@
     <div class="">
         <div class="bg-dark text-white d-flex">
 
-            <div class="d-flex flex-column flex-shrink-0 p-2 text-white bg-primary vh-100" style="width: 13%; z-index: 999;">
+            <div class="d-flex flex-column flex-shrink-0 p-2 text-white bg-primary vh-100"
+                style="width: 13%; z-index: 998;">
                 <div class="row text-center">
                     <a href="/"
                         class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -125,31 +127,36 @@
             </div>
 
 
-            <main class="container-fluid mb-1 conteudo bg-cover" style="background-image: url('{{ asset('images/dark-theme.jpg') }}');">
+            <main class="container-fluid mb-1 conteudo bg-cover"
+                style="background-image: url('{{ asset('images/dark-theme.jpg') }}');">
                 <div class="p-5 container mt-4 bg-dark" id="border-main"
-                style="border-radius: 20px; border: 1px solid gray;   box-shadow: 0px 5px 10px 0px gray;
+                    style="border-radius: 20px; border: 1px solid gray;   box-shadow: 0px 5px 10px 0px gray;
                 ">
                     @yield('conteudo')
+
                 </div>
-                <footer style="left: 13%" class="fixed-bottom bg-white text-dark d-flex flex-wrap justify-content-between align-items-center py-1">
-                    <span class="col-md-4 mb-0 text-muted">© 2023 CutuCar, Inc</span>
-                    <ul class="nav mb-0 col-md-4 justify-content-end">
-                        <li class="nav-item ms-3 px-1 "><i class="bi bi-database">v1.0-postgres</i></li>
-                        <li class="nav-item ms-3 px-1 "><i class="bi bi-file-diff">v0.2-laravel</i></li>
-                        <li class="nav-item ms-3 px-1 "><a href="#" class="text-muted"><i
-                                    class="bi bi-github">Github</i></a></li>
-                    </ul>
-                </footer>
+
+                <div>
+                    <footer style="left: 13%"
+                        class="fixed-bottom bg-white text-dark d-flex flex-wrap justify-content-between align-items-center py-1">
+                        <span class="col-md-4 mb-0 text-muted">© 2023 CutuCar, Inc</span>
+                        <ul class="nav mb-0 col-md-4 justify-content-end">
+                            <li class="nav-item ms-3 px-1 "><i class="bi bi-database">v1.0-postgres</i></li>
+                            <li class="nav-item ms-3 px-1 "><i class="bi bi-file-diff">v0.2-laravel</i></li>
+                            <li class="nav-item ms-3 px-1 "><a href="#" class="text-muted"><i
+                                        class="bi bi-github">Github</i></a></li>
+                        </ul>
+
+                    </footer>
+                </div>
             </main>
         </div>
     </div>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 
 </html>

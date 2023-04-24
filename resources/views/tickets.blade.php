@@ -9,11 +9,47 @@
         border-left: 1px dashed black;
         /* borda esquerda pontilhada */
     }
+
+    .select-wrapper {
+        position: relative;
+    }
+
+    .select-search {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .select-dropdown {
+        width: 100%;
+        margin-top: 28px;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 14px;
+    }
+
+    .select-dropdown option {
+        display: none;
+    }
+
+    .select-dropdown option[aria-selected="true"] {
+        display: block;
+    }
+
+    .nafrente {
+        z-index: 99999;
+    }
 </style>
 @section('conteudo')
     <h1 class="text-center">
         <i class="bi bi-ticket" style="font-size: 3rem"></i>
-        <div class="text-center">{{$page['title']}}</div>
+        <div class="text-center">{{ $page['title'] }}</div>
     </h1>
     <div class='mb-3'>
         <button type="button" class="btn btn-primary col-md-2" data-bs-toggle="modal" data-bs-target="#myModal">
@@ -71,11 +107,12 @@
                     </div>
 
                     @php
-                    $botao = $page['botao'] ? '' : 'd-none';
+                        $botao = $page['botao'] ? '' : 'd-none';
                     @endphp
-                    <div class="{{$botao}} card-footer border-0 bg-light p-2 d-flex justify-content-around">
-                        <a href='' class='{{$botao}} btn btn-link m-0 bg-danger text-reset text-decoration-none' role="button"
-                            data-ripple-color="danger"> <i class="bi bi-trash"></i>
+                    <div class="{{ $botao }} card-footer border-0 bg-light p-2 d-flex justify-content-around">
+                        <a href=''
+                            class='{{ $botao }} btn btn-link m-0 bg-danger text-reset text-decoration-none'
+                            role="button" data-ripple-color="danger"> <i class="bi bi-trash"></i>
                             Encerrar
                         </a>
                     </div>
@@ -83,53 +120,80 @@
             </div>
         @endforeach
     </div>
-
-    </div>
     <!-- Criação da modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content corzinha">
+    <div class="modal fade text-black" data-bs-backdrop="false" id="myModal" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog nafrente">
+            <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Inserir/Editar Carro</h5>
+                    <h5 class="modal-title text-dark" id="exampleModalLabel">Inserir Ticket</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
 
                     <!-- Formulário de inserção/edição de clientes -->
-                    <form method="POST" action="" id="form-client" name="form-client">
+                    <form method="POST" action="/ticket" id="form-client" name="form-client">
+                        @csrf
                         <input type="hidden" name="action" value="save_cliente">
                         <input type="hidden" name="id" value="">
 
                         <div class="mb-3">
-                            <label for="nome" class="form-label">Nome:</label>
-                            <div class="input-group col-mb-3">
+
+                            <label for="placa" class="form-label">Carro:</label>
+                            <div class="input-group select-wrapper fit-width col-mb-3">
                                 <span class="input-group-text" id="basic-addon1">
-                                    <i class="bi bi-spellcheck"></i>
+                                    <i class="bi bi-car-front"></i>
                                 </span>
-                                <input type="text" name="nome" id="nome" class="form-control">
-                                <small id="msgNome" class="form-text text-danger"></small>
+
+                                <select class="form-select" id="datalistOptions" name="carro_id">
+                                    <option selected name="carro_id" value="-1">Selecione um carro</option>
+                                    @foreach ($carros as $carro)
+                                        <option data-tokens="{{ $carro->placa }}" name='carro_id'
+                                            value='{{ $carro->id }}'>{{ $carro->placa }}
+                                        </option>
+                                    @endforeach
+                                </select>
+
+                            </div>
+                            <div class="form-check mt-2 mb-2 ms-1">
+                                <input name="cadastrado" class="form-check-input" type="checkbox" id="placaCheck">
+                                <label class="form-check-label text-muted" for="placaCheck">
+                                    Sem cadastro?
+                                </label>
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="cpf" class="form-label">CPF:</label>
+
+                            <label for="tipo_id" class="form-label">Tipo de estadia</label>
                             <div class="input-group col-mb-3">
                                 <span class="input-group-text" id="basic-addon1">
-                                    <i class="bi bi-person-vcard"></i>
+                                    <i class="bi bi-clock"></i>
                                 </span>
-                                <input type="text" name="cpf" id="cpf" class="form-control">
-                                <small id="msgCpf" class="form-text text-danger"></small>
+                                <select name="tipo_id" class="form-select" aria-label="tipo_id">
+                                    <option selected name='tipo_id' value='-1'>Selecione um tipo</option>
+                                    @foreach ($tipos as $tipo)
+                                        <option name='tipo_id' value='{{ $tipo->id }}'>{{ $tipo->descr }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="telefone" class="form-label">Telefone:</label>
+
+                            <label for="tipo_id" class="form-label">Selecione a Vaga</label>
                             <div class="input-group col-mb-3">
                                 <span class="input-group-text" id="basic-addon1">
-                                    <i class="bi bi-telephone"></i>
+                                    <i class="bi bi-p-circle"></i>
                                 </span>
-                                <input type="text" name="telefone" id="telefone" class="form-control">
-                                <small id="msgTelefone" class="form-text text-danger"></small>
+                                <select name="vaga_id" class="form-select" id="select_box">
+                                    <option selected name='vaga_id' value='-1'>Selecione uma vaga</option>
+                                    @foreach ($vagas as $vaga)
+                                        <option name='vaga_id' value='{{ $vaga->id }}'>{{ $vaga->id }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
@@ -143,4 +207,31 @@
             </div>
         </div>
     </div>
+
+
+
+    <script>
+        document.getElementById("placaCheck").addEventListener("click", function() {
+            var select = document.querySelector("select[name='carro_id']");
+            var input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.setAttribute("name", "placa");
+            input.setAttribute("class", "form-control");
+            input.setAttribute("placeholder", "");
+            input.value = "";
+            select.parentNode.replaceChild(input, select);
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function() {
+            $("#carro_id").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#carro_id option").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 @endsection

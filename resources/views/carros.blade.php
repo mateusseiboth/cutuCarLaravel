@@ -59,10 +59,10 @@
             @endforeach
         </div>
         <!-- Criação da modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade text-black" data-bs-backdrop="false" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content corzinha">
-                    <div class="modal-header">
+                    <div class="modal-header text-black">
                         <h5 class="modal-title" id="exampleModalLabel">Inserir/Editar Carro</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
@@ -74,37 +74,32 @@
                             <input type="hidden" name="id" value="">
 
                             <div class="mb-3">
-                                <label for="nome" class="form-label">Nome:</label>
+                                <label for="placa" class="form-label">Placa:</label>
                                 <div class="input-group col-mb-3">
                                     <span class="input-group-text" id="basic-addon1">
                                         <i class="bi bi-spellcheck"></i>
                                     </span>
-                                    <input type="text" name="nome" id="nome" class="form-control">
+                                    <input placeholder="Informe a placa do carro" type="text" name="placa" id="placa" class="form-control">
                                     <small id="msgNome" class="form-text text-danger"></small>
                                 </div>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="cpf" class="form-label">CPF:</label>
-                                <div class="input-group col-mb-3">
-                                    <span class="input-group-text" id="basic-addon1">
-                                        <i class="bi bi-person-vcard"></i>
-                                    </span>
-                                    <input type="text" name="cpf" id="cpf" class="form-control">
-                                    <small id="msgCpf" class="form-text text-danger"></small>
-                                </div>
-                            </div>
+                             <div class="mb-3">
 
-                            <div class="mb-3">
-                                <label for="telefone" class="form-label">Telefone:</label>
-                                <div class="input-group col-mb-3">
-                                    <span class="input-group-text" id="basic-addon1">
-                                        <i class="bi bi-telephone"></i>
-                                    </span>
-                                    <input type="text" name="telefone" id="telefone" class="form-control">
-                                    <small id="msgTelefone" class="form-text text-danger"></small>
-                                </div>
+                            <label for="tipo_id" class="form-label">Cliente</label>
+                            <div class="input-group col-mb-3">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="bi  bi-person-vcard"></i>
+                                </span>
+                                <select name="tipo_id" class="form-select" aria-label="tipo_id">
+                                    <option selected name='tipo_id' value='-1'>Selecione um cliente</option>
+                                    @foreach ($clientes as $cliente)
+                                        <option name='tipo_id' value='{{ $cliente->id }}'>{{ $cliente->nome }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
+                        </div>
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
