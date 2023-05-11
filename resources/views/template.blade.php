@@ -118,7 +118,12 @@
                         id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://avatars.githubusercontent.com/u/14907837?v=4" alt="" width="32"
                             height="32" class="rounded-circle me-2">
-                        <strong>Username</strong>
+                        <strong>
+                            @php
+                                echo session()->get('logado')->username;
+                            @endphp
+
+                        </strong>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                         <li><a class="dropdown-item" href="/deslogar">Deslogar</a></li>
