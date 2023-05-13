@@ -1,51 +1,5 @@
 @extends('template')
 
-<style>
-    .dashed-line {
-        position: absolute;
-        left: 100px;
-        height: 66%;
-        /* altura da linha */
-        border-left: 1px dashed black;
-        /* borda esquerda pontilhada */
-    }
-
-    .select-wrapper {
-        position: relative;
-    }
-
-    .select-search {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 6px 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    .select-dropdown {
-        width: 100%;
-        margin-top: 28px;
-        padding: 6px 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        background-color: #fff;
-        font-size: 14px;
-    }
-
-    .select-dropdown option {
-        display: none;
-    }
-
-    .select-dropdown option[aria-selected="true"] {
-        display: block;
-    }
-
-    .nafrente {
-        z-index: 99999;
-    }
-</style>
 @section('conteudo')
     <h1 class="text-center">
         <i class="bi bi-ticket" style="font-size: 3rem"></i>
