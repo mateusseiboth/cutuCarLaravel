@@ -10,9 +10,8 @@ use App\Models\Cliente;
 class CarroController extends Controller
 {
     function listar(){
-        $carros = Carro::orderByRaw('id')->get();
+        $carros = Carro::orderByRaw('id')->paginate(1);
         $clientes = Cliente::orderByRaw('id')->get();
-        return view('carros',
-                      compact('carros', 'clientes'));
+        return view('carros', compact('carros', 'clientes'));
     }
 }

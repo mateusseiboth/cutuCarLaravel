@@ -19,11 +19,14 @@
                             $cor = $vaga->estado ? 'green' : 'red';
                         @endphp
                         <a class='btn' href=''><i class='bi bi-car-front-fill'
-                                style='font-size: 4rem; color: {{$cor}};'></i></a>
+                                style='font-size: 4rem; color: {{ $cor }};'></i></a>
                     </div>
                 </div>
-
             </div>
         @endforeach
+    </div>
+    <!-- Paginação -->
+    <div class="d-flex justify-content-center" style="padding-top: 2em">
+        {{ $vagas->links() }}
     </div>
 @endsection

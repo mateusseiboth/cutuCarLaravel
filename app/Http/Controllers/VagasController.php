@@ -9,8 +9,7 @@ use App\Models\Vagas;
 class VagasController extends Controller
 {
     function listar() {
-        $vagas = Vagas::orderBy('id')->get();
-        return view('vagas',
-                      compact('vagas'));
+        $vagas = Vagas::orderBy('id')->paginate(12);
+        return view('vagas', compact('vagas'));
       }
 }

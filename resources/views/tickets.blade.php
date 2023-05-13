@@ -74,6 +74,9 @@
             </div>
         @endforeach
     </div>
+    <div class="d-flex justify-content-center" style="padding-top: 2em">
+        {{ $tickets->links() }}
+    </div>
     <!-- Criação da modal -->
     <div class="modal fade text-black" data-bs-backdrop="false" id="myModal" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">

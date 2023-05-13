@@ -12,9 +12,9 @@ use App\Models\Usuario;
 class AdminController extends Controller
 {
     function listar() {
-        $vagas = Vagas::orderBy('id')->paginate(9);
-        $tipos = Tipo::orderBy('id')->paginate(9);
-        $usuarios = Usuario::orderBy('id')->paginate(9);
+        $vagas = Vagas::orderBy('id')->paginate(9)->appends('tab', 'vagas');
+        $tipos = Tipo::orderBy('id')->paginate(1)->appends('tab', 'tipos');
+        $usuarios = Usuario::orderBy('id')->paginate(1)->appends('tab', 'usuarios');
 
         return view('admin', compact('vagas', 'tipos', 'usuarios'));
     }

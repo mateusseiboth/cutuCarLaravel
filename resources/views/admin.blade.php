@@ -10,20 +10,20 @@
     <!-- Menu de abas -->
     <ul class="nav nav-tabs justify-content-center" style="margin-bottom: 2em">
         <li class="nav-item">
-            <a class="nav-link active" id="vagas-tab" data-bs-toggle="tab" href="#vagas">Vagas</a>
+            <a class="nav-link {{ Request::get('tab') == 'vagas' ? 'active' : '' }}" href="{{ route('admin', ['tab' => 'vagas']) }}">Vagas</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="tipos-tab" data-bs-toggle="tab" href="#tipos">Tipos de Cobrança</a>
+            <a class="nav-link {{ Request::get('tab') == 'tipos' ? 'active' : '' }}" href="{{ route('admin', ['tab' => 'tipos']) }}">Tipos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="usuarios-tab" data-bs-toggle="tab" href="#usuarios">Usuários</a>
+            <a class="nav-link {{ Request::get('tab') == 'usuarios' ? 'active' : '' }}" href="{{ route('admin', ['tab' => 'usuarios']) }}">Usuários</a>
         </li>
     </ul>
 
     <!-- Conteúdo das abas -->
     <div class="tab-content">
         <!-- vagas -->
-        <div class="tab-pane fade show active" id="vagas">
+        <div class="tab-pane fade show {{ Request::get('tab') == 'vagas' ? 'active' : '' }}" id="vagas">
             <div class="row text-black d-flex justify-content-center">
                 <div class="col-lg-10">
                     <div class='mb-2'>
@@ -66,7 +66,7 @@
         
 
         <!-- Tipos de cobrança -->
-        <div class="tab-pane fade" id="tipos">
+        <div class="tab-pane fade show {{ Request::get('tab') == 'tipos' ? 'active' : '' }}" id="tipos">
             <div class="row text-black d-flex justify-content-center">
                 <div class="col-lg-10">
                     <div class="mb-2">
@@ -104,10 +104,14 @@
                     @endforeach
                 </div>
             </div>
+            <!-- Exibir a paginação -->
+            <div class="d-flex justify-content-center" style="padding-top: 2em">
+                {{ $tipos->links() }}
+            </div>
         </div>
 
         <!-- Usuários -->
-        <div class="tab-pane fade" id="usuarios">
+        <div class="tab-pane fade show {{ Request::get('tab') == 'usuarios' ? 'active' : '' }}" id="usuarios">
             <div class="row text-black d-flex justify-content-center">
                 <div class="col-lg-10">
                     <div class="mb-2">
@@ -150,6 +154,10 @@
                         </div>
                     @endforeach
                 </div>
+            </div>
+            <!-- Exibir a paginação -->
+            <div class="d-flex justify-content-center" style="padding-top: 2em">
+                {{ $usuarios->links() }}
             </div>
         </div>
 

@@ -76,7 +76,7 @@
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item ">
-                        <a href="/admin" class="nav-link menuItem" aria-current="page">
+                        <a href="/admin?tab=vagas" class="nav-link menuItem" aria-current="page">
                             <i class="me-2 bi bi-wrench-adjustable" style="font-size: 20px"></i>
                             Painel Admin.
                         </a>

@@ -9,8 +9,7 @@ use App\Models\Cliente;
 class ClienteController extends Controller
 {
     function listar() {
-        $clientes = Cliente::orderBy('id')->get();
-        return view('clientes',
-                      compact('clientes'));
+        $clientes = Cliente::orderBy('id')->paginate(1);
+        return view('clientes', compact('clientes'));
       }
 }

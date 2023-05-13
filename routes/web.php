@@ -48,7 +48,7 @@ Route::put('/tickets/{id}', 'App\Http\Controllers\TicketController@atualizar')->
 Route::delete('/tickets/{id}', 'App\Http\Controllers\TicketController@deletar')->middleware('App\Http\Middleware\CheckAuth');
 
 // Admin
-Route::get('/admin', 'App\Http\Controllers\AdminController@listar')->middleware('App\Http\Middleware\CheckAuth');
+Route::get('/admin', 'App\Http\Controllers\AdminController@listar')->name("admin")->middleware('App\Http\Middleware\CheckAuth');
 
 // Tipos
 

@@ -13,22 +13,20 @@ class TicketController extends Controller
 {
     function listarAtivos(){
         $page = ['title' => 'Tickets Ativos', 'botao' => true];
-        $tickets = Ticket::where('estado', true)->orderByRaw('id')->get();
+        $tickets = Ticket::where('estado', true)->orderByRaw('id')->paginate(9);
         $carros = Carro::orderBy('id')->get();
         $tipos = Tipo::orderBy('id')->get();
         $vagas = Vagas::where('estado', true)->orderBy('id')->get();
-        return view('tickets',
-                      compact('tickets', 'page', 'carros', 'tipos', 'vagas'));
+        return view('tickets', compact('tickets', 'page', 'carros', 'tipos', 'vagas'));
     }
 
     function listarTodos(){
         $page = ['title' => 'Todos os Tickets', 'botao' => false];
-        $tickets = Ticket::where('estado', false)->orderByRaw('id')->get();
+        $tickets = Ticket::where('estado', false)->orderByRaw('id')->paginate(9);
         $carros = Carro::orderBy('id')->get();
         $tipos = Tipo::orderBy('id')->get();
         $vagas = Vagas::where('estado', true)->orderBy('id')->get();
-        return view('tickets',
-                      compact('tickets', 'page', 'carros', 'tipos', 'vagas'));
+        return view('tickets', compact('tickets', 'page', 'carros', 'tipos', 'vagas'));
     }
 
     function novo(){
