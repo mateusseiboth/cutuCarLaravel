@@ -5,8 +5,8 @@
         <i class="bi bi-person-fill" style="font-size: 3rem"></i>
         <div class="text-center">Clientes</div>
     </h1>
-    <div class='mb-3'>
-        <button type="button" class="btn btn-primary col-md-2" data-bs-toggle="modal" data-bs-target="#myModal">
+    <div class='centralizado'>
+        <button type="button" class="main-btn" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-top: 1.2em;">
             Novo cliente
         </button>
     </div>
@@ -45,21 +45,24 @@
                                 <span class="badge rounded-pill {{ $cor }}">{{ $text }}</span></a>
                         </div>
                     </div>
-                    <div class="card-footer border-0 bg-light p-2 d-flex justify-content-around">
+                    <div class="card-footer border-0 bg-light p-2 d-flex justify-content-center">
                         <a name="btnEditar" id="btnEditar" data-bs-toggle='modal' data-bs-target='#myModal'
                             data-bs-toggle='modal' data-bs-target='#myModal' data-id='{{ $cliente->id }}'
                             data-nome='{{ $cliente->nome }}' data-cpf='{{ $cliente->cpf }}'
                             data-telefone='{{ $cliente->telefone }}'
-                            class='btn btn-editar btn-link m-0 bg-primary text-reset text-decoration-none' role="button"
-                            data-ripple-color="danger"> <i class="bi bi-pencil"></i>
-                            Editar
+                            class='btn btn-editar btn-link m-0 bg-primary text-reset text-decoration-none mx-2' role="button"
+                            data-ripple-color="danger">
+                            <i class="fa-sharp fa-solid fa-pen-to-square text-white"></i>
+                            <span class="text-white" style="font-weight: bold;">Editar</span>
                         </a>
-
-                        <a href='' class='btn btn-link m-0 bg-danger text-reset text-decoration-none' role="button"
-                            data-ripple-color="danger"> <i class="bi bi-trash"></i>
-                            Alterar estado
+                    
+                        <a href='' class='btn btn-link m-0 bg-primary text-reset text-decoration-none mx-2' role="button"
+                            data-ripple-color="danger">
+                            <i class="fa-sharp fa-solid fa-rotate text-white"></i>
+                            <span class="text-white" style="font-weight: bold;">Alterar estado</span>
                         </a>
                     </div>
+                    
                 </div>
             </div>
         @endforeach
@@ -104,8 +107,8 @@
                                 <span class="input-group-text" id="basic-addon1">
                                     <i class="bi bi-person-vcard"></i>
                                 </span>
-                                <input placeholder="Informe o CPF do cliente" type="text" name="cpf" id="cpf"
-                                    class="form-control">
+                                <input placeholder="Informe o CPF do cliente" type="text" name="cpf"
+                                    id="cpf" class="form-control">
                                 <small id="msgCpf" class="form-text text-danger"></small>
                             </div>
                         </div>
