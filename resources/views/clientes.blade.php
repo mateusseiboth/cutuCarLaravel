@@ -2,7 +2,7 @@
 
 @section('conteudo')
     <h1 class="text-center">
-        <i class="bi bi-person-fill" style="font-size: 3rem"></i>
+        <span><i class="fa-solid fa-user-group" style="font-size: 1.2em;"></i></span>
         <div class="text-center">Clientes</div>
     </h1>
     <div class='centralizado'>

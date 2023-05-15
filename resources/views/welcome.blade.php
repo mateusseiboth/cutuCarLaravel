@@ -56,16 +56,22 @@
     <h2>Integrantes</h2>
     <div class="d-flex justify-content-center">
         <div class="image-container">
-            <img class="round-image" src="https://avatars.githubusercontent.com/u/14907837?v=4" alt="Image 1">
-            <p>Mateus Seiboth</p>
+            <a class="text-decoration-none text-black" href="https://github.com/mateusseiboth">
+                <img class="round-image" src="https://avatars.githubusercontent.com/u/14907837?v=4" alt="Image 1">
+                <p>Mateus Seiboth</p>
+            </a>
         </div>
         <div class="image-container">
-            <img class="round-image" src="https://avatars.githubusercontent.com/u/117425361?v=4" alt="Image 2">
-            <p>Flávio Júnior</p>
+            <a class="text-decoration-none text-black" href="https://github.com/flaviojrdev">
+                <img class="round-image" src="https://avatars.githubusercontent.com/u/117425361?v=4" alt="Image 2">
+                <p>Flávio Júnior</p>
+            </a>
         </div>
         <div class="image-container">
-            <img class="round-image" src="https://avatars.githubusercontent.com/u/14957082?s=200&v=4" alt="Image 3">
-            <p>ChatGPT</p>
+            <a class="text-decoration-none text-black" href="https://github.com/openai">
+                <img class="round-image" src="https://avatars.githubusercontent.com/u/14957082?s=200&v=4" alt="Image 3">
+                <p>ChatGPT</p>
+            </a>
         </div>
     </div>
 

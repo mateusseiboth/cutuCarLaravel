@@ -2,7 +2,7 @@
 
 @section('conteudo')
     <h1 class="text-center">
-        <i class="bi bi-car-front-fill" style="font-size: 3rem"></i>
+        <span><i class="fa-solid fa-car" style="font-size: 1.2em;"></i></span>
         <div class="text-center">Carros</div>
     </h1>
     <div class='centralizado'>

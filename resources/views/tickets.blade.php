@@ -1,15 +1,23 @@
 @extends('template')
 
 @section('conteudo')
+    <!-- Cabeçalho da página -->
     <h1 class="text-center">
-        <i class="bi bi-ticket" style="font-size: 3rem"></i>
+        <span><i class="{{ $page['icon'] }}" style="font-size: 1.2em;"></i></span>
         <div class="text-center">{{ $page['title'] }}</div>
     </h1>
-    <div class='centralizado'>
-        <button type="button" class="main-btn" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-top: 1.2em;">
-            Novo ticket
-        </button>
-    </div>
+
+    <!-- Botão de adicionar -->
+    @if ($botao)
+        <div class='centralizado'>
+            <button type="button" class="main-btn" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-top: 1.2em;">
+                Novo ticket
+            </button>
+        </div>
+    @else
+        <div class='centralizado' style="margin-bottom: 4em;"></div>
+    @endif
+
     <div class="row text-black">
         @foreach ($tickets as $ticket)
             <div class="col-xl-4 mb-4">
@@ -66,7 +74,7 @@
                     <div class="{{ $botao }} card-footer border-0 bg-light p-2 d-flex justify-content-around">
                         <a href=''
                             class='{{ $botao }} btn btn-link m-0 bg-danger text-reset text-decoration-none'
-                            role="button" data-ripple-color="danger"> 
+                            role="button" data-ripple-color="danger">
                             <i class="fa-sharp fa-solid fa-trash text-white"></i>
                             <span class="text-white" style="font-weight: bold;">Encerrar</span>
                         </a>

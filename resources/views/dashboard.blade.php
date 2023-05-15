@@ -3,7 +3,7 @@
 @section('conteudo')
 
       <h1 style="text-align: center; margin-bottom: 1.3em;">
-        <span><i class="fa-sharp fa-solid fa-gauge" style="font-size: 1.5em;"></i></span>
+        <span><i class="fa-sharp fa-solid fa-gauge" style="font-size: 1.2em;"></i></span>
         <div>Dashboard</div>
       </h1>
 

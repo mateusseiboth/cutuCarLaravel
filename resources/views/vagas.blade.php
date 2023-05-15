@@ -2,8 +2,8 @@
 
 @section('conteudo')
     <h1 style="text-align: center">
-        <i class="bi bi-binoculars-fill" style="font-size: 3rem"></i>
-        <div>Visão Geral</div>
+        <span><i class="fa-solid fa-car-tunnel" style="font-size: 1.2em;"></i></span>
+        <div>Vagas</div>
     </h1>
 
     <div class="centralizado">
