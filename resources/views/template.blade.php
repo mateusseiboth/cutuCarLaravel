@@ -100,7 +100,7 @@
             color: #fff;
         }
 
-        button:active {
+        .main-btn:active {
             box-shadow: none;
             transform: translateY(5px);
         }

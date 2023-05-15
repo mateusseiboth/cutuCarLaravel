@@ -37,32 +37,51 @@
                                     </p>
                                 </div>
                             </div>
-                            <a class="text-decoration-none" href=''>
-                                @php
-                                    $cor = $cliente->ativo ? 'bg-success' : 'bg-danger';
-                                    $text = $cliente->ativo ? 'Ativo' : 'Inativo';
-                                @endphp
-                                <span class="badge rounded-pill {{ $cor }}">{{ $text }}</span></a>
+
+                            <!-- Botão de ativo/inativo -->
+                            <form action="{{ route('alterar-estado-cliente', ['id' => $cliente->id]) }}" method="POST"
+                                class="d-inline">
+                                @method('PUT')
+                                @csrf
+                                <button type="submit" class="btn btn-link text-decoration-none" style="padding: 0;">
+                                    @php
+                                        $cor = $cliente->ativo ? 'bg-success' : 'bg-danger';
+                                        $text = $cliente->ativo ? 'Ativo' : 'Inativo';
+                                    @endphp
+                                    <span class="badge rounded-pill {{ $cor }}">{{ $text }}</span>
+                                </button>
+                            </form>
                         </div>
                     </div>
+
+                    <!-- Botões do card -->
                     <div class="card-footer border-0 bg-light p-2 d-flex justify-content-center">
+
+                        <!-- Botão de editar -->
                         <a name="btnEditar" id="btnEditar" data-bs-toggle='modal' data-bs-target='#myModal'
                             data-bs-toggle='modal' data-bs-target='#myModal' data-id='{{ $cliente->id }}'
                             data-nome='{{ $cliente->nome }}' data-cpf='{{ $cliente->cpf }}'
                             data-telefone='{{ $cliente->telefone }}'
-                            class='btn btn-editar btn-link m-0 bg-primary text-reset text-decoration-none mx-2' role="button"
-                            data-ripple-color="danger">
+                            class='btn btn-editar btn-link m-0 bg-primary text-reset text-decoration-none mx-2'
+                            role="button" data-ripple-color="danger">
                             <i class="fa-sharp fa-solid fa-pen-to-square text-white"></i>
                             <span class="text-white" style="font-weight: bold;">Editar</span>
                         </a>
-                    
-                        <a href='' class='btn btn-link m-0 bg-primary text-reset text-decoration-none mx-2' role="button"
-                            data-ripple-color="danger">
-                            <i class="fa-sharp fa-solid fa-rotate text-white"></i>
-                            <span class="text-white" style="font-weight: bold;">Alterar estado</span>
-                        </a>
+
+                        <!-- Botão de alterar estado -->
+                        <form action="{{ route('alterar-estado-cliente', ['id' => $cliente->id]) }}" method="POST"
+                            class="d-inline">
+                            @method('PUT')
+                            @csrf
+                            <button type="submit" class="btn btn-link m-0 bg-primary text-reset text-decoration-none mx-2"
+                                role="button" data-ripple-color="danger">
+                                <i class="fa-sharp fa-solid fa-rotate text-white"></i>
+                                <span class="text-white" style="font-weight: bold;">Alterar estado</span>
+                            </button>
+                        </form>
+
                     </div>
-                    
+
                 </div>
             </div>
         @endforeach
@@ -85,7 +104,8 @@
                 <div class="modal-body">
 
                     <!-- Formulário de inserção/edição de clientes -->
-                    <form method="POST" action="" id="form-client" name="form-client">
+                    <form method="POST" action="{{ route('criar-cliente') }}" id="form-client" name="form-client">
+                        @csrf
                         <input type="hidden" name="action" value="save_cliente">
                         <input type="hidden" name="id" value="">
 

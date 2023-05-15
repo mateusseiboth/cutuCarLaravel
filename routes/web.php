@@ -33,14 +33,13 @@ Route::delete('/vagas/{id}', 'App\Http\Controllers\VagasController@deletar')->na
 
 // Clientes
 Route::get('/clientes', 'App\Http\Controllers\ClienteController@listar')->middleware('App\Http\Middleware\CheckAuth');
-Route::post('/clientes', 'App\Http\Controllers\ClienteController@criar')->middleware('App\Http\Middleware\CheckAuth');
-Route::put('/clientes/{id}', 'App\Http\Controllers\ClienteController@atualizar')->middleware('App\Http\Middleware\CheckAuth');
-Route::delete('/clientes/{id}', 'App\Http\Controllers\ClienteController@deletar')->middleware('App\Http\Middleware\CheckAuth');
+Route::post('/clientes/criar', 'App\Http\Controllers\ClienteController@criarCliente')->name('criar-cliente')->middleware('App\Http\Middleware\CheckAuth');
+Route::put('/cliente/{id}/alterar-estado', 'App\Http\Controllers\ClienteController@alterarEstadoCliente')->name('alterar-estado-cliente')->middleware('App\Http\Middleware\CheckAuth');
 
 // Carros
 Route::get('/carros', 'App\Http\Controllers\CarroController@listar')->middleware('App\Http\Middleware\CheckAuth');
-Route::post('/carros', 'App\Http\Controllers\CarroController@criar')->middleware('App\Http\Middleware\CheckAuth');
-Route::put('/carros/{id}', 'App\Http\Controllers\CarroController@atualizar')->middleware('App\Http\Middleware\CheckAuth');
+Route::post('/carros', 'App\Http\Controllers\CarroController@criar')->middleware('App\Http\Middleware\CheckAuth')->name('carros.criar');
+Route::put('/carros/{id}', 'App\Http\Controllers\CarroController@editar')->middleware('App\Http\Middleware\CheckAuth')->name('carros.editar');
 Route::delete('/carros/{id}', 'App\Http\Controllers\CarroController@deletar')->middleware('App\Http\Middleware\CheckAuth');
 
 // Tickets
