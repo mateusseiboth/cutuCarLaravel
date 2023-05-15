@@ -6,6 +6,46 @@
             text-align: center;
             margin-bottom: 1em;
         }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .round-image {
+            border-radius: 50%;
+            width: 115px;
+            height: 115px;
+            object-fit: cover;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .image-container {
+            margin-right: 6em;
+            text-align: center;
+        }
+
+        .image-container p {
+            font-size: 2em;
+        }
+
+        .tech-container {
+            margin-right: 3em;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 
     <h1>
@@ -14,11 +54,26 @@
     </h1>
 
     <h2>Integrantes</h2>
-    <ul>
-        <li>Mateus Seiboth</li>
-        <li>Flávio Henrique Almeida Júnior</li>
-        <li>ChatGPT</li>
-    </ul>
+    <div class="d-flex justify-content-center">
+        <div class="image-container">
+            <a class="text-decoration-none text-black" href="https://github.com/mateusseiboth">
+                <img class="round-image" src="https://avatars.githubusercontent.com/u/14907837?v=4" alt="Image 1">
+                <p>Mateus Seiboth</p>
+            </a>
+        </div>
+        <div class="image-container">
+            <a class="text-decoration-none text-black" href="https://github.com/flaviojrdev">
+                <img class="round-image" src="https://avatars.githubusercontent.com/u/117425361?v=4" alt="Image 2">
+                <p>Flávio Júnior</p>
+            </a>
+        </div>
+        <div class="image-container">
+            <a class="text-decoration-none text-black" href="https://github.com/openai">
+                <img class="round-image" src="https://avatars.githubusercontent.com/u/14957082?s=200&v=4" alt="Image 3">
+                <p>ChatGPT</p>
+            </a>
+        </div>
+    </div>
 
     <h2>Descrição do Projeto</h2>
     <p>
@@ -29,21 +84,20 @@
     </p>
 
     <h2>Tecnologias Utilizadas</h2>
-    <ul>
-        <li>PHP - Linguagem de programação utilizada para o desenvolvimento do back-end do site</li>
-        <li>Bootstrap - Framework front-end utilizado para o desenvolvimento do layout do site</li>
-        <li>PostgreSQL - Banco de dados utilizado para armazenar os dados do site</li>
-    </ul>
-
-    <p>
-        Todas essas tecnologias foram aplicadas de forma integrada, resultando em um projeto web completo e robusto. A
-        equipe
-        de desenvolvimento se dedicou a cada detalhe do site, desde a sua arquitetura até a sua estética, para oferecer uma
-        experiência de uso diferenciada aos usuários. Nesse sentido, foram aplicados os princípios da usabilidade e do
-        design
-        responsivo para garantir que o site possa ser acessado de qualquer dispositivo, seja ele um computador, tablet ou
-        smartphone.
-    </p>
+    <div class="d-flex justify-content-center">
+        <div class="tech-container">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg" alt="PostgreSQL Logo">
+        </div>
+        <div class="tech-container">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg" alt="PHP Logo">
+        </div>
+        <div class="tech-container">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" alt="Laravel Logo">
+        </div>
+        <div class="tech-container">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" alt="Bootstrap Logo">
+        </div>
+    </div>
 
     <h2>Considerações Finais</h2>
     <p>
