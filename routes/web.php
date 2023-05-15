@@ -2,16 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+//  _____      _          _____              _____                 _
+// / ____|    | |        / ____|            / ____|               (_)
+// | |    _   _| |_ _   _| |     __ _ _ __  | (___   ___ _ ____   ___  ___ ___
+// | |   | | | | __| | | | |    / _` | '__|  \___ \ / _ \ '__\ \ / / |/ __/ _ \
+// | |___| |_| | |_| |_| | |___| (_| | |     ____) |  __/ |   \ V /| | (_|  __/
+// \_____\__,_|\__|\__,_|\_____\__,_|_|    |_____/ \___|_|    \_/ |_|\___\___|
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,6 +17,7 @@ Route::get('/', function () {
 
 // Login
 Route::get('/login', 'App\Http\Controllers\LoginController@login')->name('login');
+Route::post('/login', 'App\Http\Controllers\LoginController@logar');
 Route::get('/deslogar', 'App\Http\Controllers\LoginController@deslogar')->name('deslogar');
 Route::post('/login', 'App\Http\Controllers\LoginController@logar');
 Route::post('/ticket', 'App\Http\Controllers\TicketController@novo');
