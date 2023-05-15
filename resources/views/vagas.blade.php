@@ -2,11 +2,16 @@
 
 @section('conteudo')
     <h1 style="text-align: center">
-        <i class="bi bi-binoculars-fill" style="font-size: 3rem"></i>
-        <div>Visão Geral</div>
+        <span><i class="fa-solid fa-car-tunnel" style="font-size: 1.2em;"></i></span>
+        <div>Vagas</div>
     </h1>
 
-    <a class="btn btn-primary" href="">Entrada de veiculo</a>
+    <div class="centralizado">
+        <button type="button" class="main-btn" href="" style="margin-top: 1.3em;">
+            Entrada de veiculo
+        </button>
+    </div>
+
     <div class='row mb-2'>
         @foreach ($vagas as $vaga)
             <div class='col-md-2 d-flex align-items-stretch' style='margin-top: 2rem;'>
@@ -19,11 +24,14 @@
                             $cor = $vaga->estado ? 'green' : 'red';
                         @endphp
                         <a class='btn' href=''><i class='bi bi-car-front-fill'
-                                style='font-size: 4rem; color: {{$cor}};'></i></a>
+                                style='font-size: 4rem; color: {{ $cor }};'></i></a>
                     </div>
                 </div>
-
             </div>
         @endforeach
+    </div>
+    <!-- Paginação -->
+    <div class="d-flex justify-content-center" style="padding-top: 2em">
+        {{ $vagas->links() }}
     </div>
 @endsection

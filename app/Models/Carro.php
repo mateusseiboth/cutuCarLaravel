@@ -12,6 +12,8 @@ class Carro extends Model
     use HasFactory;
     protected $table = 'carro';
 
+    public $timestamps = false;
+
     public function cliente(): BelongsTo
     {
        return $this->belongsTo(Cliente::class);

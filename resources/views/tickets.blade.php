@@ -1,61 +1,23 @@
 @extends('template')
 
-<style>
-    .dashed-line {
-        position: absolute;
-        left: 100px;
-        height: 66%;
-        /* altura da linha */
-        border-left: 1px dashed black;
-        /* borda esquerda pontilhada */
-    }
-
-    .select-wrapper {
-        position: relative;
-    }
-
-    .select-search {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 6px 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    .select-dropdown {
-        width: 100%;
-        margin-top: 28px;
-        padding: 6px 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        background-color: #fff;
-        font-size: 14px;
-    }
-
-    .select-dropdown option {
-        display: none;
-    }
-
-    .select-dropdown option[aria-selected="true"] {
-        display: block;
-    }
-
-    .nafrente {
-        z-index: 99999;
-    }
-</style>
 @section('conteudo')
+    <!-- Cabeçalho da página -->
     <h1 class="text-center">
-        <i class="bi bi-ticket" style="font-size: 3rem"></i>
+        <span><i class="{{ $page['icon'] }}" style="font-size: 1.2em;"></i></span>
         <div class="text-center">{{ $page['title'] }}</div>
     </h1>
-    <div class='mb-3'>
-        <button type="button" class="btn btn-primary col-md-2" data-bs-toggle="modal" data-bs-target="#myModal">
-            Novo ticket
-        </button>
-    </div>
+
+    <!-- Botão de adicionar -->
+    @if ($botao)
+        <div class='centralizado'>
+            <button type="button" class="main-btn" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-top: 1.2em;">
+                Novo ticket
+            </button>
+        </div>
+    @else
+        <div class='centralizado' style="margin-bottom: 4em;"></div>
+    @endif
+
     <div class="row text-black">
         @foreach ($tickets as $ticket)
             <div class="col-xl-4 mb-4">
@@ -112,13 +74,17 @@
                     <div class="{{ $botao }} card-footer border-0 bg-light p-2 d-flex justify-content-around">
                         <a href=''
                             class='{{ $botao }} btn btn-link m-0 bg-danger text-reset text-decoration-none'
-                            role="button" data-ripple-color="danger"> <i class="bi bi-trash"></i>
-                            Encerrar
+                            role="button" data-ripple-color="danger">
+                            <i class="fa-sharp fa-solid fa-trash text-white"></i>
+                            <span class="text-white" style="font-weight: bold;">Encerrar</span>
                         </a>
                     </div>
                 </div>
             </div>
         @endforeach
+    </div>
+    <div class="d-flex justify-content-center" style="padding-top: 2em">
+        {{ $tickets->links() }}
     </div>
     <!-- Criação da modal -->
     <div class="modal fade text-black" data-bs-backdrop="false" id="myModal" tabindex="-1"
