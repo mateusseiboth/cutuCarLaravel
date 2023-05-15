@@ -6,7 +6,12 @@
         <div>Visão Geral</div>
     </h1>
 
-    <a class="btn btn-primary" href="">Entrada de veiculo</a>
+    <div class="centralizado">
+        <button type="button" class="main-btn" href="" style="margin-top: 1.3em;">
+            Entrada de veiculo
+        </button>
+    </div>
+
     <div class='row mb-2'>
         @foreach ($vagas as $vaga)
             <div class='col-md-2 d-flex align-items-stretch' style='margin-top: 2rem;'>
