@@ -23,6 +23,10 @@ Route::get('/deslogar', 'App\Http\Controllers\LoginController@deslogar')->name('
 Route::post('/login', 'App\Http\Controllers\LoginController@logar');
 Route::post('/ticket', 'App\Http\Controllers\TicketController@novo');
 
+
+//Dashboard
+Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware('App\Http\Middleware\CheckAuth');
+
 // Vagas
 Route::get('/vagas', 'App\Http\Controllers\VagasController@listar')->middleware('App\Http\Middleware\CheckAuth');
 Route::post('/vagas', 'App\Http\Controllers\VagasController@criar')->middleware('App\Http\Middleware\CheckAuth');
