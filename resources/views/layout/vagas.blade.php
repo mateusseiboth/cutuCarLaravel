@@ -9,15 +9,9 @@
 
     <!-- Botão de entrada de veiculo -->
     <div class="centralizado">
-
-        <button type="button" class="main-btn" href="" style="margin-top: 1.3em;">
-            Entrada de veiculo (Rapido)
+        <button type="button" class="main-btn" href="" style="margin-top: 1.3em;" data-bs-toggle="modal" data-bs-target="#myModal">
+            Entrada de Veículo
         </button>
-
-        <button type="button" class="main-btn" href="" style="margin-top: 1.3em;">
-            Entrada de veiculo (Com Cadastro)
-        </button>
-
     </div>
 
     <!-- Listagem -->
@@ -45,4 +39,9 @@
     <div class="d-flex justify-content-center" style="padding-top: 2em">
         {{ $vagas->links() }}
     </div>
+
+    <!-- Modal -->
+    @include('modals.ticketsModal')
+
+
 @endsection

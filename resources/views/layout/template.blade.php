@@ -22,7 +22,7 @@
         }
 
         #side_nav {
-            background: #000;
+            background: hsl(207, 98%, 40%);
             min-width: 250px;
             max-width: 250px;
         }
@@ -80,21 +80,21 @@
             transform: scale(1.05);
         }
 
-        .centralizado{
-            text-align: center;            
+        .centralizado {
+            text-align: center;
         }
 
-        .main-btn{
+        .main-btn {
             background-color: hsl(207, 98%, 40%);
             box-shadow: 0 5px 0 hsl(207, 94%, 28%);
             margin-bottom: 1.3em;
-            width: 400px;            
+            width: 400px;
         }
 
-        button {       
+        button {
             font-weight: bold;
             border-radius: 16px;
-            padding: 12px 16px;            
+            padding: 12px 16px;
             transition: all 0.1s;
             border: none;
             color: #fff;

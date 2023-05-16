@@ -19,16 +19,15 @@ Route::get('/', function () {
 
 // Login
 Route::get('/login', 'App\Http\Controllers\LoginController@login')->name('login');
-Route::get('/deslogar', 'App\Http\Controllers\LoginController@deslogar')->name('deslogar');
 Route::post('/login', 'App\Http\Controllers\LoginController@logar');
-Route::post('/ticket', 'App\Http\Controllers\TicketController@novo');
+Route::get('/deslogar', 'App\Http\Controllers\LoginController@deslogar')->name('deslogar');
 
 //Dashboard
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware('App\Http\Middleware\CheckAuth');
 
 // Vagas
 Route::get('/vagas', 'App\Http\Controllers\VagasController@listar')->middleware('App\Http\Middleware\CheckAuth');
-Route::post('/vagas', 'App\Http\Controllers\VagasController@criar')->name('vagas.criar')->middleware('App\Http\Middleware\CheckAuth');
+Route::post('/vagas', 'App\Http\Controllers\VagasController@novo');
 Route::delete('/vagas/{id}', 'App\Http\Controllers\VagasController@deletar')->name('vagas.delete')->middleware('App\Http\Middleware\CheckAuth');
 
 // Clientes
@@ -47,6 +46,7 @@ Route::delete('/carros/{id}', 'App\Http\Controllers\CarroController@deletar')->m
 Route::get('/tickets/ano/{ano}', 'App\Http\Controllers\TicketController@listarPorAno')->middleware('App\Http\Middleware\CheckAuth');
 Route::get('/tickets/ativos', 'App\Http\Controllers\TicketController@listarAtivos')->name('tickets')->middleware('App\Http\Middleware\CheckAuth');
 Route::get('/tickets/todos', 'App\Http\Controllers\TicketController@listarTodos')->middleware('App\Http\Middleware\CheckAuth');
+Route::post('/ticket', 'App\Http\Controllers\TicketController@novo');
 Route::put('/tickets/{id}', 'App\Http\Controllers\TicketController@atualizar')->middleware('App\Http\Middleware\CheckAuth');
 Route::delete('/tickets/{id}', 'App\Http\Controllers\TicketController@deletar')->middleware('App\Http\Middleware\CheckAuth');
 
