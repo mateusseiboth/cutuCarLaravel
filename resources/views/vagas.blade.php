@@ -1,17 +1,26 @@
 @extends('template')
 
 @section('conteudo')
+    <!-- Titulo -->
     <h1 style="text-align: center">
         <span><i class="fa-solid fa-car-tunnel" style="font-size: 1.2em;"></i></span>
         <div>Vagas</div>
     </h1>
 
+    <!-- Botão de entrada de veiculo -->
     <div class="centralizado">
+
         <button type="button" class="main-btn" href="" style="margin-top: 1.3em;">
-            Entrada de veiculo
+            Entrada de veiculo (Rapido)
         </button>
+
+        <button type="button" class="main-btn" href="" style="margin-top: 1.3em;">
+            Entrada de veiculo (Com Cadastro)
+        </button>
+
     </div>
 
+    <!-- Listagem -->
     <div class='row mb-2'>
         @foreach ($vagas as $vaga)
             <div class='col-md-2 d-flex align-items-stretch' style='margin-top: 2rem;'>
@@ -23,13 +32,15 @@
                         @php
                             $cor = $vaga->estado ? 'green' : 'red';
                         @endphp
-                        <a class='btn' href=''><i class='bi bi-car-front-fill'
-                                style='font-size: 4rem; color: {{ $cor }};'></i></a>
+                        <a class='btn' href=''>
+                            <i class='fa-solid fa-car' style='font-size: 4rem; color: {{ $cor }};'></i>
+                        </a>
                     </div>
                 </div>
             </div>
         @endforeach
     </div>
+
     <!-- Paginação -->
     <div class="d-flex justify-content-center" style="padding-top: 2em">
         {{ $vagas->links() }}

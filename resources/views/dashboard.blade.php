@@ -49,7 +49,7 @@
             <div class="col-md-4">
                 <div class="card text-center">
                     <div class="card-body">
-                        <i class="fa-solid fa-car-tunnel" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                        <i class="fa-solid fa-car-on" style="font-size: 3rem; margin-bottom: 1rem;"></i>
                         <h5 class="card-title">Vagas Livres</h5>
                         <h1 class="card-text font-weight-bold">{{ $vagasDisponiveisCount }}</h1>
                     </div>

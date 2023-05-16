@@ -16,7 +16,7 @@
 
     <!-- Mensagem de sucesso -->
     @if (session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success text-center">
             {{ session('success') }}
         </div>
     @endif
@@ -29,7 +29,7 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
-                                <i class="bi bi-car-front-fill rounded-circle" style="font-size: 3rem"> </i>
+                                <i class="fa-solid fa-car" style="font-size: 3rem"> </i>
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">
                                         {{ $carro->placa }}

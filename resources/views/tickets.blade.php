@@ -24,7 +24,7 @@
                 <div class="card col-md-12">
                     <div class="card-body">
                         <div class="d-flex">
-                            <div class="flex-grow-1 align-self-center ms-2 align-items-center justify-content-center">
+                            <div class=" align-self-center ms-2 align-items-center justify-content-center">
                                 <i class="bi bi-ticket " style="font-size: 3rem"> </i>
                             </div>
                             <div class="dashed-line"></div>
@@ -49,20 +49,24 @@
                                         <strong>
                                             Hora de entrada:
                                         </strong>
-                                        {{ $ticket->hora_entrada }}
+                                        {{ date('d/m H:i', strtotime($ticket->hora_entrada)) }}
                                     </p>
-                                    <p class="text-muted mb-0">
-                                        <strong>
-                                            Hora de saida:
-                                        </strong>
-                                        {{ $ticket->hora_saida }}
-                                    </p>
-                                    <p class="text-muted mb-0">
-                                        <strong>
-                                            Total pago:
-                                        </strong>
-                                        {{ $ticket->total_pago }}
-                                    </p>
+                                    @if ($ticket->hora_saida != null)
+                                        <p class="text-muted mb-0">
+                                            <strong>
+                                                Hora de Saída:
+                                            </strong>
+                                            {{ date('d/m H:i', strtotime($ticket->hora_saida)) }}
+                                        </p>
+                                    @endif
+                                    @if ($ticket->total_pago != null)
+                                        <p class="text-muted mb-0">
+                                            <strong>
+                                                Total Pago:
+                                            </strong>
+                                            {{ $ticket->total_pago }}
+                                        </p>
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -23,7 +23,7 @@ class VagasController extends Controller
   public function criar(Request $request)
   {
     $vaga = new Vagas();
-    $vaga->estado = true; // Define o estado da vaga como "true"
+    $vaga->estado = true;
     $vaga->save();
 
     return redirect()->back()->with('success', 'Vaga criada com sucesso');

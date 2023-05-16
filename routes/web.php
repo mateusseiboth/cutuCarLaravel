@@ -35,6 +35,7 @@ Route::delete('/vagas/{id}', 'App\Http\Controllers\VagasController@deletar')->na
 Route::get('/clientes', 'App\Http\Controllers\ClienteController@listar')->middleware('App\Http\Middleware\CheckAuth');
 Route::post('/clientes/criar', 'App\Http\Controllers\ClienteController@criarCliente')->name('criar-cliente')->middleware('App\Http\Middleware\CheckAuth');
 Route::put('/cliente/{id}/alterar-estado', 'App\Http\Controllers\ClienteController@alterarEstadoCliente')->name('alterar-estado-cliente')->middleware('App\Http\Middleware\CheckAuth');
+Route::put('/cliente/{id}/editar', 'App\Http\Controllers\ClienteController@editarCliente')->name('editar-cliente')->middleware('App\Http\Middleware\CheckAuth');
 
 // Carros
 Route::get('/carros', 'App\Http\Controllers\CarroController@listar')->middleware('App\Http\Middleware\CheckAuth');
@@ -43,6 +44,7 @@ Route::put('/carros/{id}', 'App\Http\Controllers\CarroController@editar')->middl
 Route::delete('/carros/{id}', 'App\Http\Controllers\CarroController@deletar')->middleware('App\Http\Middleware\CheckAuth');
 
 // Tickets
+Route::get('/tickets/ano/{ano}', 'App\Http\Controllers\TicketController@listarPorAno')->middleware('App\Http\Middleware\CheckAuth');
 Route::get('/tickets/ativos', 'App\Http\Controllers\TicketController@listarAtivos')->name('tickets')->middleware('App\Http\Middleware\CheckAuth');
 Route::get('/tickets/todos', 'App\Http\Controllers\TicketController@listarTodos')->middleware('App\Http\Middleware\CheckAuth');
 Route::put('/tickets/{id}', 'App\Http\Controllers\TicketController@atualizar')->middleware('App\Http\Middleware\CheckAuth');

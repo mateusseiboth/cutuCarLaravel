@@ -15,7 +15,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link {{ Request::get('tab') == 'tipos' ? 'active' : '' }}"
-                href="{{ route('admin', ['tab' => 'tipos']) }}">Tipos</a>
+                href="{{ route('admin', ['tab' => 'tipos']) }}">Tipos de Cobrança</a>
         </li>
         <li class="nav-item">
             <a class="nav-link {{ Request::get('tab') == 'usuarios' ? 'active' : '' }}"
@@ -29,7 +29,7 @@
         <!-- Vagas -->
         <div class="tab-pane fade show {{ Request::get('tab') == 'vagas' ? 'active' : '' }}" id="vagas">
             <div class="row text-black d-flex justify-content-center">
-                <div class="col-lg-10">
+                <div class="">
 
                     <!-- Botão de criação de vaga -->
                     <div class="centralizado">
@@ -41,6 +41,13 @@
                         </form>
                     </div>
 
+                    <!-- Mensagem de sucesso -->
+                    @if (session('success'))
+                        <div class="alert alert-success text-center">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
                     <!-- Listagem -->
                     <div class="row">
                         @foreach ($vagas as $vaga)
@@ -49,7 +56,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-center align-items-center">
                                             <div class="d-flex align-items-center">
-                                                <i class="bi bi-car-front-fill rounded-circle" style="font-size: 3rem"> </i>
+                                                <span><i class="fa-solid fa-car" style="font-size: 3rem;"></i></span>
                                                 <div class="ms-3">
                                                     Vaga número #{{ $vaga->id }}
                                                 </div>
@@ -90,7 +97,7 @@
         <!-- Tipos de cobrança -->
         <div class="tab-pane fade show {{ Request::get('tab') == 'tipos' ? 'active' : '' }}" id="tipos">
             <div class="row text-black d-flex justify-content-center">
-                <div class="col-lg-10">
+                <div class="">
                     <div class="centralizado">
                         <button type="button" class="main-btn" data-bs-toggle="modal" data-bs-target="#myModal">
                             Adicionar Tipo de Cobrança
@@ -133,7 +140,7 @@
         <!-- Usuários -->
         <div class="tab-pane fade show {{ Request::get('tab') == 'usuarios' ? 'active' : '' }}" id="usuarios">
             <div class="row text-black d-flex justify-content-center">
-                <div class="col-lg-10">
+                <div class="">
                     <div class="centralizado">
                         <button type="button" class="main-btn" data-bs-toggle="modal" data-bs-target="#myModal">
                             Adicionar Usuário
