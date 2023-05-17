@@ -75,13 +75,15 @@
                     @php
                         $botao = $page['botao'] ? '' : 'd-none';
                     @endphp
+
                     <div class="{{ $botao }} card-footer border-0 bg-light p-2 d-flex justify-content-around">
-                        <a href=''
-                            class='{{ $botao }} btn btn-link m-0 bg-danger text-reset text-decoration-none'
-                            role="button" data-ripple-color="danger">
-                            <i class="fa-sharp fa-solid fa-trash text-white"></i>
-                            <span class="text-white" style="font-weight: bold;">Encerrar</span>
-                        </a>
+
+                            <a href='/tickets/{{ $ticket->id }}'
+                                class='{{ $botao }} btn btn-link m-0 bg-danger text-reset text-decoration-none'
+                                role="button" data-ripple-color="danger">
+                                <i class="fa-sharp fa-solid fa-trash text-white"></i>
+                                <span class="text-white" style="font-weight: bold;">Encerrar</span>
+                            </a>
                     </div>
                 </div>
             </div>
@@ -92,6 +94,6 @@
     <div class="d-flex justify-content-center" style="padding-top: 2em">
         {{ $tickets->links() }}
     </div>
-    
+
     @include('modals.ticketsModal')
 @endsection
