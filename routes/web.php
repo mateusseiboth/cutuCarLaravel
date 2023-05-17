@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TicketController;
+use Doctrine\DBAL\Driver\Middleware;
 
 //  _____      _          _____              _____                 _
 // / ____|    | |        / ____|            / ____|               (_)
@@ -25,7 +27,7 @@ Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->midd
 
 // Vagas
 Route::get('/vagas', 'App\Http\Controllers\VagasController@listar')->middleware('App\Http\Middleware\CheckAuth');
-Route::post('/vagas', 'App\Http\Controllers\VagasController@novo');
+Route::post('/vagas', 'App\Http\Controllers\VagasController@novo')->middleware('App\Http\Middleware\CheckAuth')->name('vagas.criar');
 Route::delete('/vagas/{id}', 'App\Http\Controllers\VagasController@deletar')->name('vagas.delete')->middleware('App\Http\Middleware\CheckAuth');
 
 // Clientes
@@ -45,8 +47,9 @@ Route::get('/tickets/ano/{ano}', 'App\Http\Controllers\TicketController@listarPo
 Route::get('/tickets/ativos', 'App\Http\Controllers\TicketController@listarAtivos')->name('tickets')->middleware('App\Http\Middleware\CheckAuth');
 Route::get('/tickets/todos', 'App\Http\Controllers\TicketController@listarTodos')->middleware('App\Http\Middleware\CheckAuth');
 Route::post('/ticket', 'App\Http\Controllers\TicketController@novo');
-Route::put('/tickets/{id}', 'App\Http\Controllers\TicketController@atualizar')->middleware('App\Http\Middleware\CheckAuth');
-Route::delete('/tickets/{id}', 'App\Http\Controllers\TicketController@deletar')->middleware('App\Http\Middleware\CheckAuth');
+Route::get('/tickets/{id}', function($id) {
+    $ticketController = new TicketController;
+    return $ticketController->deletar($id);})->middleware('App\Http\Middleware\CheckAuth');
 
 // Admin
 Route::get('/admin', 'App\Http\Controllers\AdminController@listar')->name("admin")->middleware('App\Http\Middleware\CheckAuth');
