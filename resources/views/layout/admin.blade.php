@@ -15,7 +15,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link {{ Request::get('tab') == 'tipos' ? 'active' : '' }}"
-                href="{{ route('admin', ['tab' => 'tipos']) }}">Tipos</a>
+                href="{{ route('admin', ['tab' => 'tipos']) }}">Tipos de Cobrança</a>
         </li>
         <li class="nav-item">
             <a class="nav-link {{ Request::get('tab') == 'usuarios' ? 'active' : '' }}"
@@ -29,7 +29,7 @@
         <!-- Vagas -->
         <div class="tab-pane fade show {{ Request::get('tab') == 'vagas' ? 'active' : '' }}" id="vagas">
             <div class="row text-black d-flex justify-content-center">
-                <div class="col-lg-10">
+                <div class="">
 
                     <!-- Botão de criação de vaga -->
                     <div class="centralizado">
@@ -41,6 +41,13 @@
                         </form>
                     </div>
 
+                    <!-- Mensagem de sucesso -->
+                    @if (session('success'))
+                        <div class="alert alert-success text-center">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
                     <!-- Listagem -->
                     <div class="row">
                         @foreach ($vagas as $vaga)
@@ -49,7 +56,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-center align-items-center">
                                             <div class="d-flex align-items-center">
-                                                <i class="bi bi-car-front-fill rounded-circle" style="font-size: 3rem"> </i>
+                                                <span><i class="fa-solid fa-car" style="font-size: 3rem;"></i></span>
                                                 <div class="ms-3">
                                                     Vaga número #{{ $vaga->id }}
                                                 </div>
@@ -90,7 +97,7 @@
         <!-- Tipos de cobrança -->
         <div class="tab-pane fade show {{ Request::get('tab') == 'tipos' ? 'active' : '' }}" id="tipos">
             <div class="row text-black d-flex justify-content-center">
-                <div class="col-lg-10">
+                <div class="">
                     <div class="centralizado">
                         <button type="button" class="main-btn" data-bs-toggle="modal" data-bs-target="#myModal">
                             Adicionar Tipo de Cobrança
@@ -133,7 +140,7 @@
         <!-- Usuários -->
         <div class="tab-pane fade show {{ Request::get('tab') == 'usuarios' ? 'active' : '' }}" id="usuarios">
             <div class="row text-black d-flex justify-content-center">
-                <div class="col-lg-10">
+                <div class="">
                     <div class="centralizado">
                         <button type="button" class="main-btn" data-bs-toggle="modal" data-bs-target="#myModal">
                             Adicionar Usuário
@@ -179,62 +186,7 @@
 
     </div>
 
-    <!-- Criação da modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content corzinha">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Inserir/Editar Carro</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-                <div class="modal-body">
-
-                    <!-- Formulário de inserção/edição de clientes -->
-                    <form method="POST" action="" id="form-client" name="form-client">
-                        <input type="hidden" name="action" value="save_cliente">
-                        <input type="hidden" name="id" value="">
-
-                        <div class="mb-3">
-                            <label for="nome" class="form-label">Nome:</label>
-                            <div class="input-group col-mb-3">
-                                <span class="input-group-text" id="basic-addon1">
-                                    <i class="bi bi-spellcheck"></i>
-                                </span>
-                                <input type="text" name="nome" id="nome" class="form-control">
-                                <small id="msgNome" class="form-text text-danger"></small>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="cpf" class="form-label">CPF:</label>
-                            <div class="input-group col-mb-3">
-                                <span class="input-group-text" id="basic-addon1">
-                                    <i class="bi bi-person-vcard"></i>
-                                </span>
-                                <input type="text" name="cpf" id="cpf" class="form-control">
-                                <small id="msgCpf" class="form-text text-danger"></small>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="telefone" class="form-label">Telefone:</label>
-                            <div class="input-group col-mb-3">
-                                <span class="input-group-text" id="basic-addon1">
-                                    <i class="bi bi-telephone"></i>
-                                </span>
-                                <input type="text" name="telefone" id="telefone" class="form-control">
-                                <small id="msgTelefone" class="form-text text-danger"></small>
-                            </div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            <button type="submit" class="btn btn-primary">Salvar mudanças</button>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Incluir a modal separada -->
+    @include('modals.adminModal')
+    
 @endsection

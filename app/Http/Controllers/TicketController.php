@@ -14,7 +14,7 @@ class TicketController extends Controller
     function listarAtivos()
     {
         $page = ['title' => 'Tickets Ativos', 'botao' => true, 'icon' => 'fa-solid fa-ticket'];
-        $tickets = Ticket::where('estado', true)->orderByRaw('id')->paginate(9);
+        $tickets = Ticket::where('estado', true)->orderByRaw('id')->paginate(6);
         $carros = Carro::orderBy('id')->get();
         $tipos = Tipo::orderBy('id')->get();
         $vagas = Vagas::where('estado', true)->orderBy('id')->get();
@@ -25,7 +25,7 @@ class TicketController extends Controller
     function listarTodos()
     {
         $page = ['title' => 'Histórico', 'botao' => false, 'icon' => 'fa-solid fa-clock-rotate-left'];
-        $tickets = Ticket::where('estado', false)->orderByRaw('id')->paginate(9);
+        $tickets = Ticket::where('estado', false)->orderByRaw('id')->paginate(6);
         $carros = Carro::orderBy('id')->get();
         $tipos = Tipo::orderBy('id')->get();
         $vagas = Vagas::where('estado', true)->orderBy('id')->get();

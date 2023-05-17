@@ -32,6 +32,29 @@ class ClienteController extends Controller
     return redirect()->back()->with('success', 'Cliente criado com sucesso!');
   }
 
+  public function editarCliente(Request $request, $id)
+  {
+    $cliente = Cliente::find($id);
+
+    if ($cliente) {
+      $validatedData = $request->validate([
+        'nome' => 'required|string',
+        'cpf' => 'required|string',
+        'telefone' => 'required|string',
+      ]);
+
+      $cliente->nome = $validatedData['nome'];
+      $cliente->cpf = $validatedData['cpf'];
+      $cliente->telefone = $validatedData['telefone'];
+      $cliente->save();
+
+      return back()->with('success', 'Cliente editado com sucesso');
+    }
+
+    return back()->with('error', 'Cliente não encontrado');
+  }
+
+
   function alterarEstadoCliente($id)
   {
     $cliente = Cliente::find($id);
