@@ -33,27 +33,4 @@ class VagasController extends Controller
 
     return redirect()->back()->with('success', 'Vaga criada com sucesso');
   }
-
-  function novo()
-  {
-
-    if (isset($_POST['cadastrado'])) {
-      $carro = new Carro();
-      $carro->placa = $_POST['placa'];
-      $carro->cliente_id = 0;
-
-      $carro_id = DB::table('carro')->insertGetId(['placa' => $carro->placa, 'cliente_id' => $carro->cliente_id]);
-    } else {
-      $carro_id = $_POST['carro_id'];
-    }
-
-    $tipo_id = $_POST['tipo_id'];
-    $vaga_id = $_POST['vaga_id'];
-
-    var_dump($carro_id, $tipo_id, $vaga_id);
-
-
-    $result = DB::select('select inserir_ticket(?,?,?,?)', [$carro_id, $vaga_id, $tipo_id, true]);
-    return redirect()->route('tickets');
-  }
 }

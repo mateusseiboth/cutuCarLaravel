@@ -9,8 +9,17 @@ use App\Models\Carro;
 use App\Models\Tipo;
 use App\Models\Vagas;
 
+
 class TicketController extends Controller
 {
+
+    function deletar($id){
+        $result = DB::select('select encerrar_ticket(?)', [$id]);
+        var_dump($result);
+        return redirect('/tickets/ativos');
+
+    }
+
     function listarAtivos()
     {
         $page = ['title' => 'Tickets Ativos', 'botao' => true, 'icon' => 'fa-solid fa-ticket'];
