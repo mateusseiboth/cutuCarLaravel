@@ -21,6 +21,13 @@
         </div>
     @endif
 
+    <!-- Mensagem de erro -->
+    @if (session('error'))
+        <div class="alert alert-danger text-center">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <!-- Listagem de carros -->
     <div class="row text-black">
         @foreach ($carros as $carro)
@@ -89,5 +96,4 @@
 
     <!-- Modal de edição -->
     @include('modals.carrosModalEditar')
-    
 @endsection

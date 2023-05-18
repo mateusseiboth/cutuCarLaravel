@@ -10,7 +10,7 @@ class ClienteController extends Controller
 {
   function listar()
   {
-    $clientes = Cliente::orderBy('id')->paginate(1);
+    $clientes = Cliente::orderBy('id')->paginate(6);
     return view('clientes', compact('clientes'));
   }
 

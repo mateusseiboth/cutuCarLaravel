@@ -1,6 +1,28 @@
 @extends('template')
 
 @section('conteudo')
+    <style>
+        .card {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card-title {
+            margin-bottom: 0;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+    </style>
+
     <!-- Titulo -->
     <h1 style="text-align: center">
         <span><i class="fa-solid fa-car-tunnel" style="font-size: 1.2em;"></i></span>
@@ -9,10 +31,25 @@
 
     <!-- Botão de entrada de veiculo -->
     <div class="centralizado">
-        <button type="button" class="main-btn" href="" style="margin-top: 1.3em;" data-bs-toggle="modal" data-bs-target="#myModal">
+        <button type="button" class="main-btn" href="" style="margin-top: 1.3em;" data-bs-toggle="modal"
+            data-bs-target="#myModal">
             Entrada de Veículo
         </button>
     </div>
+
+    <!-- Mensagem de sucesso -->
+    @if (session('success'))
+        <div class="alert alert-success text-center">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <!-- Mensagem de erro -->
+    @if (session('error'))
+        <div class="alert alert-danger text-center">
+            {{ session('error') }}
+        </div>
+    @endif
 
     <!-- Listagem -->
     <div class='row mb-2'>
@@ -42,6 +79,4 @@
 
     <!-- Modal -->
     @include('modals.ticketsModal')
-
-
 @endsection

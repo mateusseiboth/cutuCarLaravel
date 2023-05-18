@@ -14,6 +14,20 @@
         </button>
     </div>
 
+    <!-- Mensagem de sucesso -->
+    @if (session('success'))
+        <div class="alert alert-success text-center">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <!-- Mensagem de erro -->
+    @if (session('error'))
+        <div class="alert alert-danger text-center">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <div class="row text-black">
         @foreach ($clientes as $cliente)
             <div class="col-xl-4 mb-4">
@@ -101,5 +115,4 @@
 
     <!-- Modal de edição -->
     @include('modals.clientesModalEditar')
-    
 @endsection

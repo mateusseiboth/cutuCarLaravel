@@ -17,6 +17,7 @@
             height: 115px;
             object-fit: cover;
             animation: fadeIn 0.8s ease-in;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
         .image-container {

@@ -8,16 +8,17 @@ use App\Models\Ticket;
 use App\Models\Carro;
 use App\Models\Tipo;
 use App\Models\Vagas;
+use Illuminate\Support\Facades\View;
 
 
 class TicketController extends Controller
 {
 
-    function deletar($id){
+    function deletar($id)
+    {
         $result = DB::select('select encerrar_ticket(?)', [$id]);
         var_dump($result);
         return redirect('/tickets/ativos');
-
     }
 
     function listarAtivos()
@@ -28,8 +29,11 @@ class TicketController extends Controller
         $tipos = Tipo::orderBy('id')->get();
         $vagas = Vagas::where('estado', true)->orderBy('id')->get();
         $botao = true;
-        return view('tickets', compact('tickets', 'page', 'carros', 'tipos', 'vagas', 'botao'));
+
+        $numeroTicketsAtivos = Ticket::where('estado', true)->count();
+        return view('tickets', compact('tickets', 'page', 'carros', 'tipos', 'vagas', 'botao', 'numeroTicketsAtivos'));
     }
+
 
     function listarTodos()
     {
@@ -62,6 +66,6 @@ class TicketController extends Controller
 
 
         $result = DB::select('select inserir_ticket(?,?,?,?)', [$carro_id, $vaga_id, $tipo_id, true]);
-        return redirect()->route('tickets');
+        return redirect()->back()->with('success', 'Vaga preenchida com sucesso!');
     }
 }

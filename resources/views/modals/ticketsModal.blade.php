@@ -1,3 +1,20 @@
+<?php
+
+use App\Models\Vagas;
+
+$vagasDisponiveis = Vagas::orderBy('id')->get();
+?>
+
+<style>
+    option.disponivel {
+        color: green;
+    }
+
+    option.indisponivel {
+        color: rgb(240, 151, 151);
+    }
+</style>
+
 <!-- Criação da modal -->
 <div class="modal fade text-black" data-bs-backdrop="false" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -59,7 +76,6 @@
                     </div>
 
                     <div class="mb-3">
-
                         <label for="tipo_id" class="form-label">Selecione a Vaga</label>
                         <div class="input-group col-mb-3">
                             <span class="input-group-text" id="basic-addon1">
@@ -67,8 +83,11 @@
                             </span>
                             <select name="vaga_id" class="form-select" id="select_box">
                                 <option selected name='vaga_id' value='-1'>Selecione uma vaga</option>
-                                @foreach ($vagas as $vaga)
-                                    <option name='vaga_id' value='{{ $vaga->id }}'>{{ $vaga->id }}
+                                @foreach ($vagasDisponiveis as $vaga)
+                                    <option name='vaga_id' value='{{ $vaga->id }}'
+                                        {{ $vaga->estado ? 'class=disponivel' : 'class=indisponivel' }}
+                                        {{ $vaga->estado ? '' : 'disabled' }}>
+                                        {{ $vaga->id }}
                                     </option>
                                 @endforeach
                             </select>
