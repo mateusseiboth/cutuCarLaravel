@@ -16,12 +16,13 @@ class LoginController extends Controller
     {
         return view('auth/login');
     }
-    public function logar(){
-        $username = $_POST['username'];
-        $senha = $_POST['password'];
-        $senha =  base64_encode($senha);
-        $usuario = Usuario::where('username', $username)->where('password', $senha)->first();
-        if (null != $usuario){
+    public function logar(Request $request)
+    {
+        $username = $request->input('username');
+        $senha = $request->input('password');
+        $usuario = Usuario::where('username', $username)->first();
+
+        if ($usuario && password_verify($senha, $usuario->password)) {
             session(['logado' => $usuario]);
             return redirect()->route('home');
         } else {
@@ -29,7 +30,9 @@ class LoginController extends Controller
         }
     }
 
-    public function deslogar(){
+
+    public function deslogar()
+    {
         session(['logado' => null]);
         return redirect()->route('login');
     }

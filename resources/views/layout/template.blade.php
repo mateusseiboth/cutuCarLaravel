@@ -22,7 +22,7 @@
         }
 
         #side_nav {
-            background: hsl(207, 98%, 40%);
+            background: rgb(2, 112, 202);
             min-width: 250px;
             max-width: 250px;
         }
@@ -47,10 +47,18 @@
         .sidebar li.active a,
         .sidebar li.active a:hover {
             color: #000;
+            background: #fff;
+            border-radius: 8px;
         }
 
         .sidebar li a {
             color: #fff;
+            transition: all 0.3s;
+        }
+
+        .sidebar li a:hover {
+            background: rgb(35, 150, 245);
+            border-radius: 8px;
         }
 
         #titulo {
@@ -74,9 +82,12 @@
         .card {
             animation: appear 400ms backwards;
             transition: all 300ms;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border: none;
         }
 
         .card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
             transform: scale(1.05);
         }
 
@@ -85,8 +96,8 @@
         }
 
         .main-btn {
-            background-color: hsl(207, 98%, 40%);
-            box-shadow: 0 5px 0 hsl(207, 94%, 28%);
+            background-color: rgb(2, 112, 202);
+            box-shadow: 0 5px 0 rgb(4, 78, 139);
             margin-bottom: 1.3em;
             width: 400px;
         }
@@ -104,6 +115,8 @@
             box-shadow: none;
             transform: translateY(5px);
         }
+
+        
 
         @keyframes appear {
             from {
@@ -161,6 +174,7 @@
                     <a href="/tickets/ativos" class="text-decoration-none px-3 py-2 d-block">
                         <span><i class="fa-solid fa-ticket"></i></span>
                         Tickets Ativos
+                        <span style="margin-left: 1.2em;" class="badge bg-dark text-white">{{ $numeroTicketsAtivos }}</span>
                     </a>
                 </li>
                 <li class="side-items">

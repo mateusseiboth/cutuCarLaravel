@@ -11,7 +11,7 @@ class CarroController extends Controller
 {
     function listar()
     {
-        $carros = Carro::orderByRaw('id')->paginate(1);
+        $carros = Carro::orderByRaw('id')->paginate(6);
         $clientes = Cliente::orderByRaw('id')->get();
         return view('carros', compact('carros', 'clientes'));
     }

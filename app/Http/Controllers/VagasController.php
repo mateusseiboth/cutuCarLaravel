@@ -19,6 +19,14 @@ class VagasController extends Controller
     return view('vagas', compact('vagas', 'carros', 'tipos'));
   }
 
+  public function listarTodos()
+  {
+    $vagas = Vagas::orderBy('id')->get();
+    $carros = Carro::orderBy('id')->get();
+    $tipos = Tipo::orderBy('id')->get();
+    return view('vagas', compact('vagas', 'carros', 'tipos'));
+  }
+
   public function deletar($id)
   {
     Vagas::findOrFail($id)->delete();
