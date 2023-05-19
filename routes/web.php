@@ -21,7 +21,7 @@ Route::post('/login', 'App\Http\Controllers\LoginController@logar')->middleware(
 Route::get('/deslogar', 'App\Http\Controllers\LoginController@deslogar')->name('deslogar');
 
 //Dashboard
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware('App\Http\Middleware\CheckAuth');
+Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth');
 
 // Vagas
 Route::get('/vagas', 'App\Http\Controllers\VagasController@listar')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth');

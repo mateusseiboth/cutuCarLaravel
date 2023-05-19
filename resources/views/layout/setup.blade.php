@@ -250,7 +250,7 @@ if($tabelasFaltantes['vaga'] && $tabelasFaltantes['userExist']
         <div class="modal-content">
             <div class="modal-body">
                 <div class="terminal" id="terminal">
-                    <pre>
+                    <pre style="color: green">
 _____      _          _____              _____                 _
   / ____|    | |        / ____|            / ____|               (_)
         | |    _   _| |_ _   _| |     __ _ _ __  | (___   ___ _ ____   ___  ___ ___
