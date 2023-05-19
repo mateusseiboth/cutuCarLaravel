@@ -59,6 +59,4 @@ Route::delete('/tipos/{id}', 'App\Http\Controllers\TipoController@deletar')->nam
 
 // Usuarios
 Route::post('/usuarios/criar', 'App\Http\Controllers\UsuarioController@criarUsuario')->name('criar-usuario')->middleware('App\Http\Middleware\CheckAuth');
-Route::get('/usuarios/imagem/{id}', 'UserController@getUserImage')->name('usuario.imagem');
-
-
+Route::delete('/usuarios/{id}', 'App\Http\Controllers\UsuarioController@deletar')->middleware('App\Http\Middleware\CheckAuth')->name('usuarios.deletar');

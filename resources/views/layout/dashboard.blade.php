@@ -15,12 +15,18 @@
         .link-sem-decoracao:hover .card {
             background-color: #007bff;
         }
+
+        .flex-container {
+            display: flex;
+            justify-content: center;
+        }
     </style>
 
     <h1 style="text-align: center; margin-bottom: 1.3em;">
         <span><i class="fa-sharp fa-solid fa-gauge" style="font-size: 1.2em;"></i></span>
         <div>Dashboard</div>
     </h1>
+
     <div class="row justify-content-center mb-3">
         <div class="col-md-4">
             <a href="/carros" class="link-sem-decoracao">
@@ -94,4 +100,76 @@
             </a>
         </div>
     </div>
+
+    @php
+        $dataHoraAtual = \Carbon\Carbon::now();
+        $dataHoraEncerramento = \Carbon\Carbon::now()->endOfDay();
+        
+        $diferenca = $dataHoraAtual->diff($dataHoraEncerramento);
+    @endphp
+
+    <div class="flex-container">
+        <div class="centralizado" style="margin-top: 4em; padding-right: 6em;">
+            <div style="display: block;">
+                <span>Horário Atual do Sistema:</span>
+            </div>
+            <div style="display: block;">
+                <span style="font-size: 2em; font-weight: bold;" id="horario-atual">{{ $dataHoraAtual->format('H:i:s') }}</span>
+            </div>
+        </div>
+        <div class="centralizado" style="margin-top: 4em;">
+            <div style="display: block;">
+                <span>Encerramento dos Tickets:</span>
+            </div>
+            <div style="display: block;">
+                <span style="font-size: 2em; font-weight: bold;" id="contador">{{ $diferenca->format('%H:%I:%S') }}</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setInterval(function() {
+            var horarioAtualElemento = document.getElementById('horario-atual');
+            var contadorElemento = document.getElementById('contador');
+
+            var dataHoraAtual = new Date();
+            var horas = ('0' + dataHoraAtual.getHours()).slice(-2);
+            var minutos = ('0' + dataHoraAtual.getMinutes()).slice(-2);
+            var segundos = ('0' + dataHoraAtual.getSeconds()).slice(-2);
+
+            // Atualizar o horário atual do sistema com os novos valores
+            horarioAtualElemento.textContent = horas + ':' + minutos + ':' + segundos;
+
+            var contadorTexto = contadorElemento.textContent;
+            var partes = contadorTexto.split(':');
+            var horas = parseInt(partes[0], 10);
+            var minutos = parseInt(partes[1], 10);
+            var segundos = parseInt(partes[2], 10);
+
+            // Reduzir um segundo
+            segundos--;
+
+            // Verificar se chegou a zero
+            if (segundos < 0) {
+                segundos = 59;
+                minutos--;
+
+                if (minutos < 0) {
+                    minutos = 59;
+                    horas--;
+
+                    if (horas < 0) {
+                        horas = 0;
+                        minutos = 0;
+                        segundos = 0;
+                    }
+                }
+            }
+
+            // Atualizar o contador com os novos valores
+            contadorElemento.textContent = ('0' + horas).slice(-2) + ':' +
+                ('0' + minutos).slice(-2) + ':' +
+                ('0' + segundos).slice(-2);
+        }, 1000);
+    </script>
 @endsection
