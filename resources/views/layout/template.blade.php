@@ -134,7 +134,7 @@
 <body>
 
     <div class="main-container d-flex">
-        <div class="sidebar d-flex flex-column" id="side_nav">
+        <div class="sidebar d-flex flex-column" id="side_nav" style="z-index: 999999999">
             <a href="/"
                 class="header-box px-2 pt-3 pb-4 d-flex justify-content-center align-items-center text-decoration-none">
                 <h1 class="fs-4" id="titulo">
@@ -214,9 +214,10 @@
         <div class="content p5"> @yield('conteudo')
             <div>
                 <footer style="left: 13%"
-                    class="fixed-bottom bg-white text-dark d-flex flex-wrap justify-content-between align-items-center py-1">
-                    <span class="col-md-4 mb-0 text-muted">© 2023 CutuCar, Inc</span>
-                    <ul class="nav mb-0 col-md-4 justify-content-end">
+                    class="fixed-bottom bg-white text-dark d-flex flex-wrap justify-content-end align-items-end py-1">
+
+                    <ul class="nav mb-0 col-md-6 justify-content-end text-end">
+                        <li class="nav-item ms-3 px-1 "><i class="bi bi-car-front-fill">CutuCar, Inc 2023</i></li>
                         <li class="nav-item ms-3 px-1 "><i class="bi bi-database">v1.4-postgres</i></li>
                         <li class="nav-item ms-3 px-1 "><i class="bi bi-file-diff">v0.8-laravel</i></li>
                         <li class="nav-item ms-3 px-1 "><a target="_blank" href="https://github.com/mateusseiboth/cutuCarLaravel" class="text-muted"><i
