@@ -17,6 +17,12 @@ class AssistantController extends Controller
         return view('setup', compact('tabelasFaltantes'));
     }
 
+    function success()
+    {
+
+        return view('success');
+    }
+
     function checkSuccess(Request $request)
     {
         $userExist = Schema::hasTable('usuario');
@@ -39,12 +45,14 @@ class AssistantController extends Controller
 
     function checkUser()
     {
+            $send = [];
             $usuario = Usuario::exists();
+            $send['usuario'] = $usuario;
             if (!$usuario) {
-                return view('setupUser');
+                return view('setupUser', ['usuario' => $usuario]);
             } else {
 
-                return redirect()->route('home');
+                return view('setupUser', ['usuario' => $usuario]);
             }
 
     }

@@ -90,10 +90,6 @@
             border: none;
         }
 
-        .card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-            transform: scale(1.05);
-        }
 
         .centralizado {
             text-align: center;
@@ -150,48 +146,63 @@
     </style>
 </head>
 
-<div class="container col-md-6">
-    <div class="row d-flex justify-content-center vh-100">
-        <h4 style="text-align: center;">
-            <span><i class="fa-solid fa-wrench" style="font-size: 1.2em;"></i></span>
-            <div>Detectamos a seguinte configuração de banco:</div>
+<div class="container col-md-6 centralizado" style="margin-top: 1rem">
+    <div class="card">
+        <h4 class="card-header" style="text-align: center;">
+            <span><i class="fa-solid fa-database" style="font-size: 1.2em;"></i></span>
+            <div class="">O primeiro passo nós demos</div>
         </h4>
 
 
-        <div class="flex-container">
-            <div class="centralizado">
+
+        <div class="card-body">
+            <div class="row">
+                <p>Atualmenta seu banco de dados está com a seguinte configuração de tabelas</p>
+            </div>
+            <div class="row">
+                {!! $tabelasFaltantes['carro']
+                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>"
+                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>" !!}
+            </div>
+            <div class="row">
+                {!! $tabelasFaltantes['cliente']
+                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>"
+                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>" !!}
+            </div>
+            <div class="row">
+                {!! $tabelasFaltantes['ticket']
+                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>"
+                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>" !!}
+            </div>
+            <div class="row">
+                {!! $tabelasFaltantes['tipo']
+                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>"
+                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>" !!}
+            </div>
+            <div class="row">
+                {!! $tabelasFaltantes['vaga']
+                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>"
+                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>" !!}
+            </div>
+            <div class="row">
+                {!! $tabelasFaltantes['userExist']
+                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>"
+                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>" !!}
+            </div>
+
+            <div class="row col-md-12 card-footer">
                 <div class="row">
-                    {!! $tabelasFaltantes['carro']
-                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>"
-                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>" !!}
-                </div>
-                <div class="row">
-                    {!! $tabelasFaltantes['cliente']
-                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>"
-                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>" !!}
-                </div>
-                <div class="row">
-                    {!! $tabelasFaltantes['ticket']
-                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>"
-                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>" !!}
-                </div>
-                <div class="row">
-                    {!! $tabelasFaltantes['tipo']
-                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>"
-                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>" !!}
-                </div>
-                <div class="row">
-                    {!! $tabelasFaltantes['vaga']
-                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>"
-                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>" !!}
-                </div>
-                <div class="row">
-                    {!! $tabelasFaltantes['userExist']
-                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>"
-                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>" !!}
+                    <p>Ao clicar em avançar você irá criar as tabelas faltantes de forma automática. Além disso será feita a inserção dos registros iniciais</p>
+                    <p class="text-muted">Obs: Para o caso do Osshiro (release de entrega) a inserção faz o cadastro de dois itens de cada tabela</p>
                 </div>
 
-                <div class="row">
+
+                <div class="row col-md-4">
+                    <a href="{{ url()->previous() }}" type="button" class="main-btn btn bg-danger">
+                        Voltar
+                    </a>
+                </div>
+                <div class="row col-md-4 ms-auto text-end">
                     <a type="button" class="main-btn btn"
                         @php
                             if($tabelasFaltantes['vaga'] && $tabelasFaltantes['userExist']
@@ -202,16 +213,14 @@
                                 echo "href='" . route('firstUser') . "'";
                             } else {
                                 echo "href='" . route('criarTabela') . "'";
-                            }
-                        @endphp>
+                            } @endphp>
                         Avançar
                     </a>
-
-
                 </div>
-
             </div>
+
         </div>
+
 
 
 

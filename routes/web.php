@@ -67,3 +67,4 @@ Route::get('/assistant/check', 'App\Http\Controllers\AssistantController@checkTa
 Route::get('/assistant/checkSuccess', 'App\Http\Controllers\AssistantController@checkSuccess')->name('check');
 Route::get('/assistant/user', 'App\Http\Controllers\AssistantController@checkUser')->name('firstUser');
 Route::post('/assistant/createUser', 'App\Http\Controllers\UsuarioController@criarUsuario')->name('createFirstUser');
+Route::get('/assistant/success', 'App\Http\Controllers\AssistantController@success')->name('success');

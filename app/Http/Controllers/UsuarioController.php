@@ -37,7 +37,7 @@ class UsuarioController extends Controller
       if ($previousUrl !== route('firstUser')) {
       return redirect()->back()->with('success', 'Usuário criado com sucesso.');
       } else {
-        return redirect()->route('login');
+        return redirect()->route('success');
       }
     } catch (\Illuminate\Database\QueryException $e) {
       dd($e->getMessage());

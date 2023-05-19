@@ -146,24 +146,26 @@
     </style>
 </head>
 
-@if($usuario  === true)
 <div class="container col-md-6 centralizado" style="margin-top: 1rem">
     <div class="card">
         <div class="card-header">
             <h4 style="text-align: center;">
-                <span><i class="fa-solid fa-user-secret" style="font-size: 1.2em;"></i></span>
-                <div>Parece que você já tem um usuário</div>
+                <span><i class="fa-solid fa-car-on" style="font-size: 1.2em;"></i></span>
+                <div>E voalá</div>
             </h4>
         </div>
 
 
         <div class="card-body">
 
-
-            <p class="card-text mt-2">Apenas avance essa etapa</p>
+            <h1 class="card-title mt-2 mb-4"><i class="fa-sharp fa-solid fa-circle-check fa-2xl"
+                    style="color: #00ff1e;"></i> Tudo certo!</h1>
+                <hr>
+            <p class="card-text mt-2">Agradeçemos que tenha escolhido o CutuCAR como seu gerenciador de estacionamento.
+                Apenas clique abaixo para continuar e iremos te direcionar para a tela de login</p>
 
             <div class="row col-md-4 ms-auto me-auto text-center ">
-                <a type="button" class="link-sem-decoracao" href="{{route('success')}}">
+                <a type="button" class="link-sem-decoracao" href="{{route('login')}}">
                     <i class="fa-solid fa-circle-arrow-right fa-2xl" style="color: rgb(2, 112, 202);"></i>
                 </a>
             </div>
@@ -175,68 +177,3 @@
 
     </div>
 </div>
-
-@else
-<div class="container col-md-6 centralizado" style="margin-top: 1rem">
-    <div class="card">
-        <h4 class="card-header" style="text-align: center;">
-            <span><i class="fa-solid fa-user-secret" style="font-size: 1.2em;"></i></span>
-            <div class="">Mas um passo só não cria sistema</div>
-        </h4>
-        <div class="card-body">
-            <div class="row">
-                <p>Precisamos que você crie um usuário inicial (que será o administrador do sistema)</p>
-            </div>
-            <div class="row">
-                <form method="POST" action="{{ route('createFirstUser') }}" id="form-usuario"
-                    enctype="multipart/form-data">
-                    @csrf
-
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Nome de Usuário:</label>
-                        <input type="text" class="form-control" id="username" name="username"
-                            placeholder="Informe o nome de usuário" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Senha:</label>
-                        <input type="password" class="form-control" id="password" name="password"
-                            placeholder="Informe a senha" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="image" class="form-label">Imagem:</label>
-                        <input type="file" class="form-control" id="image" name="image">
-                    </div>
-
-                    <!-- Exibição da imagem -->
-                    <div class="mb-3" id="image-preview-container" style="display: none;">
-                        <label for="image-preview" class="form-label">Pré-visualização da Imagem:</label>
-                        <img id="image-preview" src="#" alt="Pré-visualização da Imagem"
-                            style="max-width: 100%; height: auto;">
-                    </div>
-
-                    <div class="row col-md-12 card-footer">
-                        <div class="row">
-                            <p>Não se preocupe pois iremos cuidar de todos os outros detalhes e logo você poderá utilizar o CutuCAR em sua versão mais recente</p>
-                        </div>
-                        <div class="row col-md-4">
-                            <a href="{{ url()->previous() }}" type="button" class="main-btn btn bg-danger">
-                                Voltar
-                            </a>
-                        </div>
-                        <div class="row col-md-4 ms-auto text-end">
-                            <button type="submit" class="main-btn btn btn-primary">Cadastrar</button>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
-
-        </div>
-
-
-
-    </div>
-</div>
-@endif
