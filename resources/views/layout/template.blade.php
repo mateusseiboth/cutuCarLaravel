@@ -67,7 +67,11 @@
         }
 
         #titulo span {
-            font-size: 1.2em;
+            font-size: 1.5em;
+        }
+
+        #cutu{
+            color: rgb(2, 112, 202)
         }
 
         .side-items {
@@ -134,7 +138,7 @@
             <a href="/"
                 class="header-box px-2 pt-3 pb-4 d-flex justify-content-center align-items-center text-decoration-none">
                 <h1 class="fs-4" id="titulo">
-                    <span class="bg-white text-dark rounded shadow px-2 me-2">Cutu</span>
+                    <span id ="cutu" class="bg-white rounded shadow px-2 me-2">Cutu</span>
                     <span class="text-white">Car</span>
                 </h1>
             </a>
