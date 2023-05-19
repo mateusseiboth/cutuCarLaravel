@@ -131,9 +131,9 @@ class AssistantController extends Controller
                 $table->unsignedBigInteger('carro_id');
                 $table->unsignedBigInteger('vaga_id');
                 $table->unsignedBigInteger('tipo_id');
-                $table->timestamp('hora_entrada');
+                $table->timestampTz('hora_entrada');
                 $table->boolean('estado');
-                $table->timestamp('hora_saida')->nullable();
+                $table->timestampTz('hora_saida')->nullable();
                 $table->decimal('total_pago', 30, 2)->nullable();
 
                 $table->foreign('carro_id')->references('id')->on('carro');
