@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\Usuario;
@@ -25,6 +26,7 @@ class CheckConfig
         $ticket = Schema::hasTable('ticket');
         $tipo = Schema::hasTable('tipo');
         $vaga = Schema::hasTable('vaga');
+        $banco = DB::connection()->getPdo();
 
         $tabelasFaltantes = [
             'userExist' => $userExist,
@@ -33,6 +35,7 @@ class CheckConfig
             'ticket' => $ticket,
             'tipo' => $tipo,
             'vaga' => $vaga,
+            'banco' => $banco,
         ];
         if ($carro && $cliente && $ticket && $tipo && $vaga && $userExist) {
             $userCreate = Usuario::exists();

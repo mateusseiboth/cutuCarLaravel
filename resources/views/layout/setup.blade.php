@@ -160,34 +160,40 @@
                 <p>Atualmenta seu banco de dados está com a seguinte configuração de tabelas</p>
             </div>
             <div class="row">
+                {!! $tabelasFaltantes['banco']
+                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Conexão com o banco</i>"
+                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Conexão com o banco</i>" !!}
+            </div>
+
+            <div class="row">
                 {!! $tabelasFaltantes['carro']
-                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>"
-                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>" !!}
+                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>"
+                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>" !!}
             </div>
             <div class="row">
                 {!! $tabelasFaltantes['cliente']
-                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>"
-                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>" !!}
+                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>"
+                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>" !!}
             </div>
             <div class="row">
                 {!! $tabelasFaltantes['ticket']
-                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>"
-                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>" !!}
+                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>"
+                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>" !!}
             </div>
             <div class="row">
                 {!! $tabelasFaltantes['tipo']
-                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>"
-                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>" !!}
+                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>"
+                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>" !!}
             </div>
             <div class="row">
                 {!! $tabelasFaltantes['vaga']
-                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>"
-                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>" !!}
+                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>"
+                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>" !!}
             </div>
             <div class="row">
                 {!! $tabelasFaltantes['userExist']
-                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>"
-                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>" !!}
+                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>"
+                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>" !!}
             </div>
 
             <div class="row col-md-12 card-footer">

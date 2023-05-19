@@ -31,6 +31,7 @@ class AssistantController extends Controller
         $ticket = Schema::hasTable('ticket');
         $tipo = Schema::hasTable('tipo');
         $vaga = Schema::hasTable('vaga');
+        $banco = DB::connection()->getPdo();
 
         $tabelasFaltantes = [
             'userExist' => $userExist,
@@ -39,6 +40,7 @@ class AssistantController extends Controller
             'ticket' => $ticket,
             'tipo' => $tipo,
             'vaga' => $vaga,
+            'banco' => $banco,
         ];
         return view('setup', compact('tabelasFaltantes'));
     }
