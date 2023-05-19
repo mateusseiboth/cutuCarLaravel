@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mateus Seiboth and Flávio">
-    <title>Carrinhos maravilhosos v0.3</title>
+    <title>CutuCar</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbar-fixed/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+
 
     <style>
         body {
@@ -70,7 +72,7 @@
             font-size: 1.5em;
         }
 
-        #cutu{
+        #cutu {
             color: rgb(2, 112, 202)
         }
 
@@ -120,7 +122,7 @@
             transform: translateY(5px);
         }
 
-        
+
 
         @keyframes appear {
             from {
@@ -134,11 +136,11 @@
 <body>
 
     <div class="main-container d-flex">
-        <div class="sidebar d-flex flex-column" id="side_nav">
+        <div class="sidebar d-flex flex-column" id="side_nav" style="z-index: 999999999">
             <a href="/"
                 class="header-box px-2 pt-3 pb-4 d-flex justify-content-center align-items-center text-decoration-none">
                 <h1 class="fs-4" id="titulo">
-                    <span id ="cutu" class="bg-white rounded shadow px-2 me-2">Cutu</span>
+                    <span id="cutu" class="bg-white rounded shadow px-2 me-2">Cutu</span>
                     <span class="text-white">Car</span>
                 </h1>
             </a>
@@ -178,7 +180,8 @@
                     <a href="/tickets/ativos" class="text-decoration-none px-3 py-2 d-block">
                         <span><i class="fa-solid fa-ticket"></i></span>
                         Tickets Ativos
-                        <span style="margin-left: 1.2em;" class="badge bg-dark text-white">{{ $numeroTicketsAtivos }}</span>
+                        <span style="margin-left: 1.2em;"
+                            class="badge bg-dark text-white">{{ $numeroTicketsAtivos }}</span>
                     </a>
                 </li>
                 <li class="side-items">
@@ -211,9 +214,27 @@
             </ul>
 
         </div>
-        <div class="content p5"> @yield('conteudo')
-
+        <div class="content p5" style="padding-bottom: 80px;">
+            @yield('conteudo')
         </div>
+            <div class="p5 mt-4">
+                <footer style="left: 13%"
+                    class="fixed-bottom bg-white text-dark d-flex flex-wrap justify-content-end align-items-end py-1"
+                    style="position: relative;">
+
+                    <ul class="nav mb-0 col-md-6 justify-content-end text-end">
+                        <li class="nav-item ms-3 px-1 "><i class="bi bi-car-front-fill">CutuCar, Inc 2023</i></li>
+                        <li class="nav-item ms-3 px-1 "><i class="bi bi-database">v1.4-postgres</i></li>
+                        <li class="nav-item ms-3 px-1 "><i class="bi bi-file-diff">v0.8-laravel</i></li>
+                        <li class="nav-item ms-3 px-1 "><a target="_blank"
+                                href="https://github.com/mateusseiboth/cutuCarLaravel" class="text-muted"><i
+                                    class="bi bi-github">Github</i></a></li>
+                    </ul>
+
+                </footer>
+            </div>
+
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use App\Models\Ticket;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,7 +24,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useBootstrap();
-        $numeroTicketsAtivos = Ticket::where('estado', true)->count();
-        View::share('numeroTicketsAtivos', $numeroTicketsAtivos);
+
+        $ticket = Schema::hasTable('ticket');
+        if($ticket){
+            $numeroTicketsAtivos = Ticket::where('estado', true)->count();
+            View::share('numeroTicketsAtivos', $numeroTicketsAtivos);
+        }
     }
 }
