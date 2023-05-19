@@ -120,7 +120,7 @@
             transform: translateY(5px);
         }
 
-        
+
 
         @keyframes appear {
             from {
@@ -212,7 +212,19 @@
 
         </div>
         <div class="content p5"> @yield('conteudo')
+            <div>
+                <footer style="left: 13%"
+                    class="fixed-bottom bg-white text-dark d-flex flex-wrap justify-content-between align-items-center py-1">
+                    <span class="col-md-4 mb-0 text-muted">© 2023 CutuCar, Inc</span>
+                    <ul class="nav mb-0 col-md-4 justify-content-end">
+                        <li class="nav-item ms-3 px-1 "><i class="bi bi-database">v1.4-postgres</i></li>
+                        <li class="nav-item ms-3 px-1 "><i class="bi bi-file-diff">v0.8-laravel</i></li>
+                        <li class="nav-item ms-3 px-1 "><a target="_blank" href="https://github.com/mateusseiboth/cutuCarLaravel" class="text-muted"><i
+                                    class="bi bi-github">Github</i></a></li>
+                    </ul>
 
+                </footer>
+            </div>
         </div>
     </div>
 
