@@ -25,8 +25,10 @@ class UsuarioController extends Controller
 
       if ($request->hasFile('image')) {
         $image = $request->file('image');
-        $imageData = base64_encode(file_get_contents($image));
-        $usuario->image = $imageData;
+        $destinationPath = public_path('images');
+        $imageName = time() . '_' . $image->getClientOriginalName();
+        $image->move($destinationPath, $imageName);
+        $usuario->image = $imageName;
       }
 
       $usuario->save();
@@ -35,22 +37,10 @@ class UsuarioController extends Controller
       dd($e->getMessage());
     }
   }
-
-  public function getUserImage($id)
+  public function deletar($id)
   {
-    $user = Usuario::findOrFail($id);
-
-    if ($user->imagem) {
-      $imagePath = public_path('images/' . $user->imagem);
-      $imageData = file_get_contents($imagePath);
-
-      return response($imageData, 200)->header('Content-Type', 'image/jpeg');
-    }
-
-    // Retorne uma imagem padrão se o usuário não tiver imagem definida
-    $defaultImagePath = public_path('images/default.jpg');
-    $defaultImageData = file_get_contents($defaultImagePath);
-
-    return response($defaultImageData, 200)->header('Content-Type', 'image/jpeg');
+    $usuario = Usuario::findOrFail($id);
+    $usuario->delete();
+    return redirect()->back()->with('success', 'Usuário deletado com sucesso.');
   }
 }

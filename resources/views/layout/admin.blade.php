@@ -1,6 +1,15 @@
 @extends('template')
 
 @section('conteudo')
+    <style>
+        .user-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 2em;
+        }
+    </style>
+
     <!-- Titulo -->
     <h1 class="text-center">
         <span><i class="fa-solid fa-user-tie" style="font-size: 1.2em;"></i></span>
@@ -54,7 +63,7 @@
                     <!-- Listagem -->
                     <div class="row">
                         @foreach ($vagas as $vaga)
-                            <div class="col-md-4 mb-2">
+                            <div class="col-md-4 mb-4">
                                 <div class="card flex">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-center align-items-center">
@@ -173,18 +182,17 @@
                         </button>
                     </div>
                     @foreach ($usuarios as $user)
-                        <div class="col-md-6 col-lg-4 mb-2">
+                        <div class="col-md-6 col-lg-4 mb-4">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-center align-items-center">
                                         <div class="d-flex align-items-center">
                                             @if ($user->image)
-                                                @php
-                                                    $imageData = stream_get_contents($user->image);
-                                                    $base64 = base64_encode($imageData);
-                                                @endphp
-                                                <img src="data:image/jpeg;base64,{{ $base64 }}"
-                                                    alt="Imagem do usuário" class="user-image">
+                                                <img src="{{ asset('images/' . $user->image) }}" alt="Imagem do usuário"
+                                                    class="user-image">
+                                            @else
+                                                <img src="{{ asset('images/sem-foto.png') }}" alt="Sem foto"
+                                                    class="user-image">
                                             @endif
                                             <div class="ms-3">
                                                 <p class="mb-0">
@@ -199,19 +207,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-footer border-0 bg-light p-2 d-flex justify-content-around">
-                                    <a href='' class='btn btn-link m-0 bg-danger text-reset text-decoration-none'
-                                        role="button" data-ripple-color="danger">
-                                        <i class="fa-sharp fa-solid fa-trash text-white"></i>
-                                        <span class="text-white" style="font-weight: bold;">Apagar</span>
-                                    </a>
+                                <div class="card-footer border-0 bg-light p-2 d-flex justify-content-center">
+                                    <form action="{{ route('usuarios.deletar', $user->id) }}" method="POST"
+                                        onsubmit="return confirm('Tem certeza de que deseja apagar este usuário?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="btn btn-link m-0 bg-danger text-reset text-decoration-none"
+                                            role="button" data-ripple-color="danger">
+                                            <i class="fa-sharp fa-solid fa-trash text-white"></i>
+                                            <span class="text-white" style="font-weight: bold;">Apagar</span>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-
-
-
                 </div>
             </div>
             <!-- Exibir a paginação -->
