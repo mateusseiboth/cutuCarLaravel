@@ -13,6 +13,7 @@ class UsuarioController extends Controller
   public function criarUsuario(Request $request)
   {
     try {
+
       $request->validate([
         'username' => 'required|unique:usuario',
         'password' => 'required',
@@ -32,7 +33,12 @@ class UsuarioController extends Controller
       }
 
       $usuario->save();
+      $previousUrl = $request->header('referer');
+      if ($previousUrl !== route('firstUser')) {
       return redirect()->back()->with('success', 'Usuário criado com sucesso.');
+      } else {
+        return redirect()->route('login');
+      }
     } catch (\Illuminate\Database\QueryException $e) {
       dd($e->getMessage());
     }
