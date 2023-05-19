@@ -158,48 +158,60 @@
         </h4>
 
 
-            <div class="flex-container">
-                <div class="centralizado">
-                    <div class="row">
-                        {!! $tabelasFaltantes['carro']
-                            ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>"
-                            : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>" !!}
-                    </div>
-                    <div class="row">
-                        {!! $tabelasFaltantes['cliente']
-                            ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>"
-                            : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>" !!}
-                    </div>
-                    <div class="row">
-                        {!! $tabelasFaltantes['ticket']
-                            ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>"
-                            : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>" !!}
-                    </div>
-                    <div class="row">
-                        {!! $tabelasFaltantes['tipo']
-                            ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>"
-                            : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>" !!}
-                    </div>
-                    <div class="row">
-                        {!! $tabelasFaltantes['vaga']
-                            ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>"
-                            : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>" !!}
-                    </div>
-                    <div class="row">
-                        {!! $tabelasFaltantes['userExist']
-                            ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>"
-                            : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>" !!}
-                    </div>
+        <div class="flex-container">
+            <div class="centralizado">
+                <div class="row">
+                    {!! $tabelasFaltantes['carro']
+                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>"
+                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>" !!}
+                </div>
+                <div class="row">
+                    {!! $tabelasFaltantes['cliente']
+                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>"
+                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>" !!}
+                </div>
+                <div class="row">
+                    {!! $tabelasFaltantes['ticket']
+                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>"
+                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>" !!}
+                </div>
+                <div class="row">
+                    {!! $tabelasFaltantes['tipo']
+                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>"
+                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>" !!}
+                </div>
+                <div class="row">
+                    {!! $tabelasFaltantes['vaga']
+                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>"
+                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>" !!}
+                </div>
+                <div class="row">
+                    {!! $tabelasFaltantes['userExist']
+                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>"
+                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 1rem; margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>" !!}
+                </div>
 
-                    <div class="row">
-                        <a type="button" class="main-btn btn" href="{{route('criarTabela')}}">
-                            Corrigir e avançar
-                        </a>
+                <div class="row">
+                    <a type="button" class="main-btn btn"
+                        @php
+                            if($tabelasFaltantes['vaga'] && $tabelasFaltantes['userExist']
+                                && $tabelasFaltantes['ticket']
+                                && $tabelasFaltantes['tipo']
+                                && $tabelasFaltantes['cliente']
+                                && $tabelasFaltantes['carro']) {
+                                echo "href='" . route('firstUser') . "'";
+                            } else {
+                                echo "href='" . route('criarTabela') . "'";
+                            }
+                        @endphp>
+                        Avançar
+                    </a>
 
-                    </div>
 
                 </div>
+
             </div>
+        </div>
 
 
 

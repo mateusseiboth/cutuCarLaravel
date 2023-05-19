@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -16,9 +17,36 @@ class AssistantController extends Controller
         return view('setup', compact('tabelasFaltantes'));
     }
 
+    function checkSuccess(Request $request)
+    {
+        $userExist = Schema::hasTable('usuario');
+        $carro = Schema::hasTable('carro');
+        $cliente = Schema::hasTable('cliente');
+        $ticket = Schema::hasTable('ticket');
+        $tipo = Schema::hasTable('tipo');
+        $vaga = Schema::hasTable('vaga');
+
+        $tabelasFaltantes = [
+            'userExist' => $userExist,
+            'carro' => $carro,
+            'cliente' => $cliente,
+            'ticket' => $ticket,
+            'tipo' => $tipo,
+            'vaga' => $vaga,
+        ];
+        return view('setup', compact('tabelasFaltantes'));
+    }
+
     function checkUser()
     {
-        return view('setupUser');
+            $usuario = Usuario::exists();
+            if (!$usuario) {
+                return view('setupUser');
+            } else {
+
+                return redirect()->route('home');
+            }
+
     }
 
     public function createTables(Request $request)
@@ -161,7 +189,7 @@ class AssistantController extends Controller
 
 
 
-        return redirect()->route('home');
+        return redirect()->route('check');
         //return response()->json(['message' => 'Tabelas criadas com sucesso']);
     }
 }
