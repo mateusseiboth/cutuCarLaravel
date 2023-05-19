@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class AssistantController extends Controller
@@ -93,14 +94,69 @@ class AssistantController extends Controller
                 $table->unsignedBigInteger('tipo_id');
                 $table->timestamp('hora_entrada');
                 $table->boolean('estado');
-                $table->timestamp('hora_saida');
-                $table->decimal('total_pago', 30, 2);
+                $table->timestamp('hora_saida')->nullable();
+                $table->decimal('total_pago', 30, 2)->nullable();
 
                 $table->foreign('carro_id')->references('id')->on('carro');
                 $table->foreign('vaga_id')->references('id')->on('vaga');
                 $table->foreign('tipo_id')->references('id')->on('tipo');
             });
 
+            $db = DB::connection()->getPdo();
+
+
+            $inserir ="
+            -- FUNCTION: public.inserir_ticket(integer, integer, integer, boolean)
+
+            -- DROP FUNCTION IF EXISTS public.inserir_ticket(integer, integer, integer, boolean);
+
+            CREATE OR REPLACE FUNCTION public.inserir_ticket(
+                carro integer,
+                vaga_uso integer,
+                tipo integer,
+                estado boolean)
+                RETURNS void
+                LANGUAGE 'plpgsql'
+                COST 100
+                VOLATILE PARALLEL UNSAFE
+            AS \$BODY\$
+            begin
+                insert into ticket(carro_id, vaga_id, tipo_id, hora_entrada, estado) values (carro, vaga_uso, tipo, CURRENT_TIMESTAMP, estado);
+                update vaga set estado = false where vaga.id = vaga_uso;
+            end;
+            \$BODY\$;
+
+            ALTER FUNCTION public.inserir_ticket(integer, integer, integer, boolean)
+                OWNER TO postgres;
+        ";
+            $remover = "
+            -- FUNCTION: public.encerrar_ticket(integer)
+
+            -- DROP FUNCTION IF EXISTS public.encerrar_ticket(integer);
+
+            CREATE OR REPLACE FUNCTION public.encerrar_ticket(
+                ticket_id integer)
+                RETURNS void
+                LANGUAGE 'plpgsql'
+                COST 100
+                VOLATILE PARALLEL UNSAFE
+            AS \$BODY\$
+            begin
+                update vaga set estado = true where vaga.id = (select vaga_id from ticket where ticket.id = ticket_id);
+                update ticket set hora_saida = current_timestamp where ticket_id = ticket.id;
+                update ticket set total_pago = (EXTRACT(EPOCH FROM hora_saida) - EXTRACT(EPOCH FROM hora_entrada))/3600
+                *
+                (select preco from tipo where (select tipo_id from ticket where ticket.id = ticket_id) = tipo.id) where ticket.id = ticket_id;
+                update ticket set estado = false where ticket_id = ticket.id;
+            end;
+            \$BODY\$;
+
+            ALTER FUNCTION public.encerrar_ticket(integer)
+                OWNER TO postgres;
+        ";
+
+        $db->exec($remover);
+        $db->exec($inserir);
         }
 
 
