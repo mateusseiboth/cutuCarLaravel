@@ -8,7 +8,7 @@
     <meta name="author" content="Mateus Seiboth and Flávio">
     <title>Carrinhos maravilhosos v0.3</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbar-fixed/">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -143,6 +143,25 @@
             display: flex;
             justify-content: center;
         }
+
+        .terminal {
+            background-color: black;
+            color: lime;
+            font-family: monospace;
+            padding: 20px;
+            white-space: pre;
+        }
+
+        /* Estilos CSS para o cursor */
+        .cursor {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 
@@ -159,12 +178,6 @@
             <div class="row">
                 <p>Atualmenta seu banco de dados está com a seguinte configuração de tabelas</p>
             </div>
-            <div class="row">
-                {!! $tabelasFaltantes['banco']
-                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Conexão com o banco</i>"
-                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Conexão com o banco</i>" !!}
-            </div>
-
             <div class="row">
                 {!! $tabelasFaltantes['carro']
                     ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>"
@@ -198,8 +211,10 @@
 
             <div class="row col-md-12 card-footer">
                 <div class="row">
-                    <p>Ao clicar em avançar você irá criar as tabelas faltantes de forma automática. Além disso será feita a inserção dos registros iniciais</p>
-                    <p class="text-muted">Obs: Para o caso do Osshiro (release de entrega) a inserção faz o cadastro de dois itens de cada tabela</p>
+                    <p>Ao clicar em avançar você irá criar as tabelas faltantes de forma automática. Além disso será
+                        feita a inserção dos registros iniciais</p>
+                    <p class="text-muted">Obs: Para o caso do Osshiro (release de entrega) a inserção faz o cadastro de
+                        dois itens de cada tabela</p>
                 </div>
 
 
@@ -211,7 +226,7 @@
                 <div class="row col-md-4 ms-auto text-end">
                     <a type="button" class="main-btn btn"
                         @php
-                            if($tabelasFaltantes['vaga'] && $tabelasFaltantes['userExist']
+if($tabelasFaltantes['vaga'] && $tabelasFaltantes['userExist']
                                 && $tabelasFaltantes['ticket']
                                 && $tabelasFaltantes['tipo']
                                 && $tabelasFaltantes['cliente']
@@ -227,8 +242,62 @@
 
         </div>
 
+    </div>
+
+    @if(request()->path() != 'assistant/checkSuccess')
+    <div class="modal fade" id="asciiModal" tabindex="-1" aria-labelledby="asciiModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="terminal" id="terminal">
+                    <pre>
+_____      _          _____              _____                 _
+  / ____|    | |        / ____|            / ____|               (_)
+        | |    _   _| |_ _   _| |     __ _ _ __  | (___   ___ _ ____   ___  ___ ___
+        | |   | | | | __| | | | |    / _` | '__|  \___ \ / _ \ '__\ \ / / |/ __/ _ \
+        | |___| |_| | |_| |_| | |___| (_| | |     ____) |  __/ |   \ V /| | (_|  __/
+        \_____\__,_|\__|\__,_|\_____\__,_|_|    |_____/ \___|_|    \_/ |_|\___\___|
+
+                  </pre>
 
 
 
+
+<p style="color: green">Booting database...</p>
+                  <pre  style="color: green" class="cursor">
+_
+                </pre>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+@endif
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+
+<script>
+
+var url = window.location.href;
+    var relevantPart = url.substring(url.indexOf("/assistant"));
+
+    // Verificar se a URL contém "/assistant/check" e não contém "/assistant/checkStatus"
+    if (!relevantPart.includes("/assistant/checkStatus")) {
+        // Mostrar a modal
+        var asciiModal = new bootstrap.Modal(document.getElementById('asciiModal'));
+        asciiModal.show();
+
+        // Aguardar 2 segundos antes de fechar a modal
+        setTimeout(function() {
+            asciiModal.hide();
+        }, 4000);
+    }
+</script>
+</div>
+
+
