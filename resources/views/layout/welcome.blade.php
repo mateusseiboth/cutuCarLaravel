@@ -47,6 +47,11 @@
                 opacity: 1;
             }
         }
+        .link-sem-decoracao {
+            color: #000;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
     </style>
 
     <h1>
@@ -72,6 +77,12 @@
             <a class="text-decoration-none text-black" href="https://github.com/openai">
                 <img class="round-image" src="https://avatars.githubusercontent.com/u/14957082?s=200&v=4" alt="Image 3">
                 <p>ChatGPT</p>
+            </a>
+        </div>
+        <div class="image-container">
+            <a class="text-decoration-none text-black"  href="https://github.com/mateusseiboth/cutuCarLaravel">
+                <img class="round-image" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="link do github">
+                <p>Veja o projeto no github</p>
             </a>
         </div>
     </div>
