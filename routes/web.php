@@ -11,17 +11,17 @@ use Doctrine\DBAL\Driver\Middleware;
 // | |___| |_| | |_| |_| | |___| (_| | |     ____) |  __/ |   \ V /| | (_|  __/
 // \_____\__,_|\__|\__,_|\_____\__,_|_|    |_____/ \___|_|    \_/ |_|\___\___|
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth');
+// Index
+Route::get('/', 'App\Http\Controllers\DashboardController@index')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth')->name('home');
+
 
 // Login
 Route::get('/login', 'App\Http\Controllers\LoginController@login')->middleware('App\Http\Middleware\CheckConfig')->name('login');
 Route::post('/login', 'App\Http\Controllers\LoginController@logar')->middleware('App\Http\Middleware\CheckConfig');
 Route::get('/deslogar', 'App\Http\Controllers\LoginController@deslogar')->name('deslogar');
 
-//Dashboard
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth');
+//About
+Route::get('/about', 'App\Http\Controllers\DashboardController@about')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth');
 
 // Vagas
 Route::get('/vagas', 'App\Http\Controllers\VagasController@listar')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth');

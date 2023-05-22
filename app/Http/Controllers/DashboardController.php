@@ -26,6 +26,10 @@ class DashboardController extends Controller
             'vagasTotalCount'
         ));
     }
+
+    public function about(){
+        return view('welcome');
+    }
 }
 
 ?>

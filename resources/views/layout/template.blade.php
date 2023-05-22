@@ -147,9 +147,9 @@
 
             <ul class="list-unstyled px-2 flex-column mb-auto">
                 <li class="side-items">
-                    <a href="/dashboard" class="text-decoration-none px-3 py-2 d-block" aria-current="page">
+                    <a href="/about" class="text-decoration-none px-3 py-2 d-block" aria-current="page">
                         <span><i class="fa-sharp fa-solid fa-gauge"></i></span>
-                        Dashboard
+                        Sobre
                     </a>
                 </li>
                 <li class="side-items">
