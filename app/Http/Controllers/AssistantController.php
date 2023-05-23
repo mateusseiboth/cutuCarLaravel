@@ -6,7 +6,7 @@ use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-
+use App\Models\Cliente;
 class AssistantController extends Controller
 {
 
@@ -106,8 +106,15 @@ class AssistantController extends Controller
                 $table->string('cpf')->unique();
                 $table->string('nome');
                 $table->string('telefone');
+                $table ->boolean('ativo')->nullable();
             });
-
+                    $novoCliente = new Cliente();
+                    $novoCliente->id = 0; // Defina o ID do cliente como 0 para evitar quebra de no cadastro do carro sem cliente
+                    $novoCliente->nome = 'Sem cadastro';
+                    $novoCliente->telefone = '0000000000';
+                    $novoCliente->cpf = '00000000000';
+                    $novoCliente->ativo = true;
+                    $novoCliente->save();
         }
 
 
