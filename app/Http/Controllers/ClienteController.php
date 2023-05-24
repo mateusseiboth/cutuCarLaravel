@@ -10,7 +10,12 @@ class ClienteController extends Controller
 {
   function listar()
   {
-    $clientes = Cliente::orderBy('id')->paginate(6);
+    if(Cliente::exists()){
+        $clientes = Cliente::orderBy('id')->paginate(6);
+    }
+    else {
+        $clientes = [];
+    }
     return view('clientes', compact('clientes'));
   }
 
