@@ -10,12 +10,20 @@ class ClienteController extends Controller
 {
   function listar()
   {
-    if(Cliente::exists()){
-        $clientes = Cliente::orderBy('id')->paginate(6);
-    }
-    else {
+
+    $totalClientes = Cliente::count();
+
+    if ($totalClientes == 1 && Cliente::where('id', 0)->exists()) {
         $clientes = [];
+
+    } else {
+
+        $clientes = Cliente::where('id', '!=', 0)->orderBy('id')->paginate(6);
+
     }
+
+
+
     return view('clientes', compact('clientes'));
   }
 

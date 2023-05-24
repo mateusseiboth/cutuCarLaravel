@@ -18,7 +18,7 @@ class CarroController extends Controller
         }
         else {
             $carros = [];
-            $clientes = [];
+            $clientes = Cliente::orderByRaw('id')->get();
         }
         return view('carros', compact('carros', 'clientes'));
     }

@@ -27,7 +27,10 @@
             {{ session('error') }}
         </div>
     @endif
-    @if ($carros)
+
+    @if (empty($carros))
+        <h1>Sem carros cadastrados</h1>
+    @else
         <!-- Listagem de carros -->
         <div class="row text-black">
             @foreach ($carros as $carro)
@@ -60,6 +63,7 @@
 
                         <!-- Botões de editar e excluir -->
                         <div class="card-footer border-0 bg-light p-2 d-flex justify-content-center">
+
                             <a name="btnEditar" id="btnEditar" data-bs-toggle='modal' data-bs-target='#modalEditar'
                                 data-bs-toggle='modal' data-bs-target='#modalEditar' data-id='{{ $carro->id }}'
                                 data-nome='{{ $carro->cliente->nome }}' data-placa='{{ $carro->placa }}'
@@ -69,6 +73,7 @@
                                 <i class="fa-sharp fa-solid fa-pen-to-square text-white"></i>
                                 <span class="text-white" style="font-weight: bold;">Editar</span>
                             </a>
+
                             @if ($carro->estado)
                                 <form method="POST" action="/carros/{{ $carro->id }}"
                                     onsubmit="return confirm('Tem certeza que deseja desativar este carro?')">
@@ -106,12 +111,13 @@
         <div class="d-flex justify-content-center" style="padding-top: 2em">
             {{ $carros->links() }}
         </div>
+        <!-- Modal de cadastro -->
+
+
+        <!-- Modal de edição -->
+        @include('modals.carrosModalEditar')
     @endif
 
-
-    <!-- Modal de cadastro -->
     @include('modals.carrosModalInserir')
 
-    <!-- Modal de edição -->
-    @include('modals.carrosModalEditar')
 @endsection
