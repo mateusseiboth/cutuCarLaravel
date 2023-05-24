@@ -25,7 +25,7 @@ class TicketController extends Controller
     {
         $page = ['title' => 'Tickets Ativos', 'botao' => true, 'icon' => 'fa-solid fa-ticket'];
         $tickets = Ticket::where('estado', true)->orderByRaw('id')->paginate(6);
-        $carros = Carro::orderBy('id')->get();
+        $carros = Carro::where('estado', true)->orderBy('id')->get();
         $tipos = Tipo::orderBy('id')->get();
         $vagas = Vagas::where('estado', true)->orderBy('id')->get();
         $botao = true;
@@ -54,7 +54,7 @@ class TicketController extends Controller
             $carro->placa = $_POST['placa'];
             $carro->cliente_id = 0;
 
-            $carro_id = DB::table('carro')->insertGetId(['placa' => $carro->placa, 'cliente_id' => $carro->cliente_id]);
+            $carro_id = DB::table('carro')->insertGetId(['estado' => true, 'placa' => $carro->placa, 'cliente_id' => $carro->cliente_id]);
         } else {
             $carro_id = $_POST['carro_id'];
         }

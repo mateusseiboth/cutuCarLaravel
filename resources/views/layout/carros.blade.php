@@ -69,18 +69,32 @@
                                 <i class="fa-sharp fa-solid fa-pen-to-square text-white"></i>
                                 <span class="text-white" style="font-weight: bold;">Editar</span>
                             </a>
+                            @if ($carro->estado)
+                                <form method="POST" action="/carros/{{ $carro->id }}"
+                                    onsubmit="return confirm('Tem certeza que deseja desativar este carro?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class='btn btn-danger m-0 bg-danger text-reset text-decoration-none mx-2'
+                                        role="button" data-ripple-color="danger">
+                                        <i class="fa-sharp fa-solid fa-trash text-white"></i>
+                                        <span class="text-white" style="font-weight: bold;">Desativar</span>
+                                    </button>
+                                </form>
+                            @else
+                                <form method="POST" action="/carros/enable/{{ $carro->id }}"
+                                    onsubmit="return confirm('Tem certeza que deseja desativar este carro?')">
+                                    @csrf
+                                    @method('PUT')
+                                    <button type="submit"
+                                        class='btn btn-success m-0 bg-success text-reset text-decoration-none mx-2'
+                                        role="button" data-ripple-color="success">
+                                        <i class="fa-sharp fa-solid fa-arrows-rotate text-white"></i>
+                                        <span class="text-white" style="font-weight: bold;">Ativar</span>
+                                    </button>
+                                </form>
+                            @endif
 
-                            <form method="POST" action="/carros/{{ $carro->id }}"
-                                onsubmit="return confirm('Tem certeza que deseja excluir este carro?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    class='btn btn-danger m-0 bg-danger text-reset text-decoration-none mx-2' role="button"
-                                    data-ripple-color="danger">
-                                    <i class="fa-sharp fa-solid fa-trash text-white"></i>
-                                    <span class="text-white" style="font-weight: bold;">Remover</span>
-                                </button>
-                            </form>
                         </div>
                     </div>
                 </div>
