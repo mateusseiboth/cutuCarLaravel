@@ -11,8 +11,15 @@ class CarroController extends Controller
 {
     function listar()
     {
-        $carros = Carro::orderByRaw('id')->paginate(6);
-        $clientes = Cliente::orderByRaw('id')->get();
+
+        if(Carro::exists()){
+            $carros = Carro::orderByRaw('id')->paginate(6);
+            $clientes = Cliente::orderByRaw('id')->get();
+        }
+        else {
+            $carros = [];
+            $clientes = [];
+        }
         return view('carros', compact('carros', 'clientes'));
     }
 

@@ -91,7 +91,6 @@
                     @endphp
 
                     <div class="{{ $botao }} card-footer border-0 bg-light p-2 d-flex justify-content-around">
-
                         <a href='/tickets/{{ $ticket->id }}'
                             class='{{ $botao }} btn btn-link m-0 bg-danger text-reset text-decoration-none'
                             role="button" data-ripple-color="danger">
