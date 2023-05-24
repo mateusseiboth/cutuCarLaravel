@@ -39,6 +39,7 @@ Route::get('/carros', 'App\Http\Controllers\CarroController@listar')->middleware
 Route::post('/carros', 'App\Http\Controllers\CarroController@criar')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth')->name('carros.criar');
 Route::put('/carros/{id}', 'App\Http\Controllers\CarroController@editar')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth')->name('carros.editar');
 Route::delete('/carros/{id}', 'App\Http\Controllers\CarroController@deletar')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth');
+Route::put('/carros/enable/{id}', 'App\Http\Controllers\CarroController@ativar')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth')->name('carros.ativar');
 
 // Tickets
 Route::get('/tickets/ano/{ano}', 'App\Http\Controllers\TicketController@listarPorAno')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth');

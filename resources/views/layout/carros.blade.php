@@ -27,7 +27,10 @@
             {{ session('error') }}
         </div>
     @endif
-    @if ($carros)
+
+    @if (empty($carros))
+        <h1>Sem carros cadastrados</h1>
+    @else
         <!-- Listagem de carros -->
         <div class="row text-black">
             @foreach ($carros as $carro)
@@ -60,6 +63,7 @@
 
                         <!-- Botões de editar e excluir -->
                         <div class="card-footer border-0 bg-light p-2 d-flex justify-content-center">
+
                             <a name="btnEditar" id="btnEditar" data-bs-toggle='modal' data-bs-target='#modalEditar'
                                 data-bs-toggle='modal' data-bs-target='#modalEditar' data-id='{{ $carro->id }}'
                                 data-nome='{{ $carro->cliente->nome }}' data-placa='{{ $carro->placa }}'
@@ -70,17 +74,32 @@
                                 <span class="text-white" style="font-weight: bold;">Editar</span>
                             </a>
 
-                            <form method="POST" action="/carros/{{ $carro->id }}"
-                                onsubmit="return confirm('Tem certeza que deseja excluir este carro?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    class='btn btn-danger m-0 bg-danger text-reset text-decoration-none mx-2' role="button"
-                                    data-ripple-color="danger">
-                                    <i class="fa-sharp fa-solid fa-trash text-white"></i>
-                                    <span class="text-white" style="font-weight: bold;">Remover</span>
-                                </button>
-                            </form>
+                            @if ($carro->estado)
+                                <form method="POST" action="/carros/{{ $carro->id }}"
+                                    onsubmit="return confirm('Tem certeza que deseja desativar este carro?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class='btn btn-danger m-0 bg-danger text-reset text-decoration-none mx-2'
+                                        role="button" data-ripple-color="danger">
+                                        <i class="fa-sharp fa-solid fa-trash text-white"></i>
+                                        <span class="text-white" style="font-weight: bold;">Desativar</span>
+                                    </button>
+                                </form>
+                            @else
+                                <form method="POST" action="/carros/enable/{{ $carro->id }}"
+                                    onsubmit="return confirm('Tem certeza que deseja desativar este carro?')">
+                                    @csrf
+                                    @method('PUT')
+                                    <button type="submit"
+                                        class='btn btn-success m-0 bg-success text-reset text-decoration-none mx-2'
+                                        role="button" data-ripple-color="success">
+                                        <i class="fa-sharp fa-solid fa-arrows-rotate text-white"></i>
+                                        <span class="text-white" style="font-weight: bold;">Ativar</span>
+                                    </button>
+                                </form>
+                            @endif
+
                         </div>
                     </div>
                 </div>
@@ -92,12 +111,13 @@
         <div class="d-flex justify-content-center" style="padding-top: 2em">
             {{ $carros->links() }}
         </div>
+        <!-- Modal de cadastro -->
+
+
+        <!-- Modal de edição -->
+        @include('modals.carrosModalEditar')
     @endif
 
-
-    <!-- Modal de cadastro -->
     @include('modals.carrosModalInserir')
 
-    <!-- Modal de edição -->
-    @include('modals.carrosModalEditar')
 @endsection

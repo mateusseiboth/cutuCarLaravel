@@ -18,7 +18,7 @@ class CarroController extends Controller
         }
         else {
             $carros = [];
-            $clientes = [];
+            $clientes = Cliente::orderByRaw('id')->get();
         }
         return view('carros', compact('carros', 'clientes'));
     }
@@ -28,6 +28,7 @@ class CarroController extends Controller
         $carro = new Carro;
         $carro->placa = $request->input('placa');
         $carro->cliente_id = $request->input('cliente_id');
+        $carro->estado = true;
         $carro->save();
 
         return redirect('/carros')->with('success', 'Carro criado com sucesso');
@@ -43,11 +44,22 @@ class CarroController extends Controller
         return back()->with('success', 'Carro editado com sucesso');
     }
 
+
+    public function ativar($id){
+        $carro = Carro::find($id);
+        $carro->estado = true;
+        $carro->save();
+
+        return redirect('/carros')->with('success', 'Carro ativado com sucesso');
+
+    }
+
     public function deletar($id)
     {
         $carro = Carro::find($id);
-        $carro->delete();
+        $carro->estado = false;
+        $carro->save();
 
-        return redirect('/carros')->with('success', 'Carro excluído com sucesso');
+        return redirect('/carros')->with('success', 'Carro desligado com sucesso');
     }
 }
