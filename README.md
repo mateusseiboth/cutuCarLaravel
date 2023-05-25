@@ -52,6 +52,7 @@ O projeto segue uma estrutura MVC com as seguintes pastas:
 - 📁 **app**: Contém as classes e funções que se relacionam com o banco de dados.
 - 📁 **resources/views:**: Contém as páginas HTML que são exibidas aos usuários do sistema.
 - 📁 **app/Http/Controllers**: Contém os controladores que gerenciam as requisições do usuário e fazem a intermediação entre a camada de modelo e a camada de visualização.
+- 📁 **app/Http/Middleware**: Contém os middleware que verificam a autenticação do usuário e configuração de tabelas do sistemas.
 - 📁 **public/js**: Contém os arquivos JavaScript que são usados na construção da interface do usuário.
 - 📁 **public/img**: Contém as imagens utilizadas no projeto.
 
