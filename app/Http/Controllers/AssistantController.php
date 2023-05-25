@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tipo;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Cliente;
+use App\Models\Vagas;
+use App\Models\Carro;
 class AssistantController extends Controller
 {
 
@@ -62,6 +65,7 @@ class AssistantController extends Controller
     public function createTables(Request $request)
     {
 
+        $osshiroSan = $request->input('osshiro');
         $userExist = Schema::hasTable('usuario');
         $carro = Schema::hasTable('carro');
         $cliente = Schema::hasTable('cliente');
@@ -85,6 +89,18 @@ class AssistantController extends Controller
                 $table->increments('id');
                 $table->boolean('estado');
             });
+            if($osshiroSan){
+                //Vaga 1
+                $vaga = new Vagas();
+                $vaga->estado = true;
+                $vaga->save();
+
+                //Vaga 2
+                $vaga = new Vagas();
+                $vaga->estado = true;
+                $vaga->save();
+
+            }
 
         }
 
@@ -95,6 +111,17 @@ class AssistantController extends Controller
                 $table->decimal('preco', 30, 2);
                 $table->string('descr');
             });
+            if($osshiroSan){
+                $tipo = new Tipo();
+                $tipo->descr = "Preço por hora moto";
+                $tipo->preco = 2.98;
+                $tipo->save();
+
+                $tipo = new Tipo();
+                $tipo->descr = "Preço por hora carro";
+                $tipo->preco = 5.98;
+                $tipo->save();
+            }
 
         }
 
@@ -115,6 +142,23 @@ class AssistantController extends Controller
                     $novoCliente->cpf = '00000000000';
                     $novoCliente->ativo = true;
                     $novoCliente->save();
+                    if($osshiroSan){
+                        $novoCliente = new Cliente();
+                        $novoCliente->nome = 'Osshiro';
+                        $novoCliente->telefone = '67995639875';
+                        $novoCliente->cpf = '00506809523';
+                        $novoCliente->ativo = true;
+                        $novoCliente->save();
+
+                        //cliente 2
+                        $novoCliente = new Cliente();
+                        $novoCliente->nome = 'Palestrinha';
+                        $novoCliente->telefone = '67995639875';
+                        $novoCliente->cpf = '00506809552';
+                        $novoCliente->ativo = true;
+                        $novoCliente->save();
+
+                    }
         }
 
 
@@ -127,6 +171,18 @@ class AssistantController extends Controller
                 $table->foreign('cliente_id')->references('id')->on('cliente');
                 $table->boolean('estado');
             });
+            if($osshiroSan){
+                $carro = new Carro();
+                $carro->placa = "HSF8I90";
+                $carro->cliente_id = 1;
+                $carro->estado = true;
+
+                //carro 2
+                $carro = new Carro();
+                $carro->placa = "HKL9I90";
+                $carro->cliente_id = 2;
+                $carro->estado = true;
+            }
 
         }
 
@@ -147,6 +203,7 @@ class AssistantController extends Controller
                 $table->foreign('carro_id')->references('id')->on('carro');
                 $table->foreign('vaga_id')->references('id')->on('vaga');
                 $table->foreign('tipo_id')->references('id')->on('tipo');
+
             });
 
             $db = DB::connection()->getPdo();
