@@ -65,7 +65,8 @@ class AssistantController extends Controller
     public function createTables(Request $request)
     {
 
-        $osshiroSan = $request->input('osshiro');
+        //$osshiroSan = $request->input('osshiro');
+        $osshiroSan = true;
         $userExist = Schema::hasTable('usuario');
         $carro = Schema::hasTable('carro');
         $cliente = Schema::hasTable('cliente');
@@ -176,12 +177,14 @@ class AssistantController extends Controller
                 $carro->placa = "HSF8I90";
                 $carro->cliente_id = 1;
                 $carro->estado = true;
+                $carro->save();
 
                 //carro 2
                 $carro = new Carro();
                 $carro->placa = "HKL9I90";
                 $carro->cliente_id = 2;
                 $carro->estado = true;
+                $carro->save();
             }
 
         }
