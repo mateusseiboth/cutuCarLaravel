@@ -13,8 +13,8 @@
 
         .round-image {
             border-radius: 50%;
-            width: 115px;
-            height: 115px;
+            width: 110px;
+            height: 110px;
             object-fit: cover;
             animation: fadeIn 0.8s ease-in;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -26,7 +26,7 @@
         }
 
         .image-container p {
-            font-size: 2em;
+            font-size: 1.5em;
         }
 
         .tech-container {
@@ -47,6 +47,7 @@
                 opacity: 1;
             }
         }
+
         .link-sem-decoracao {
             color: #000;
             text-decoration: none;
@@ -55,7 +56,7 @@
     </style>
 
     <h1>
-        <i class="bi bi-file-earmark-code-fill" style="font-size: 3rem"></i>
+        <i class="fa-solid fa-circle-info" style="font-size: 3rem"></i>
         <div>Projeto de WEB III</div>
     </h1>
 
@@ -79,26 +80,20 @@
                 <p>ChatGPT</p>
             </a>
         </div>
-        <div class="image-container">
-            <a class="text-decoration-none text-black"  href="https://github.com/mateusseiboth/cutuCarLaravel">
-                <img class="round-image" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="link do github">
-                <p>Veja o projeto no github</p>
-            </a>
-        </div>
     </div>
 
     <h2>Descrição do Projeto</h2>
     <p>
-        Este projeto web representa um esforço conjunto da equipe responsável pela disciplina de Construção de Páginas Web
-        III, que se empenhou em utilizar as tecnologias mais avançadas para criar um site moderno e funcional. O padrão MVC
-        (Model-View-Controller) foi aplicado para aprimorar a organização e a manutenção do
-        código fonte, permitindo uma melhor escalabilidade do sistema.
+        Este projeto web foi desenvolvido pela equipe responsável pela disciplina de Construção de Páginas Web III,
+        utilizando o framework Laravel. Implementamos o padrão MVC do Laravel para melhorar a organização e manutenção do
+        código. Continuaremos aprimorando o projeto para oferecer a melhor experiência aos usuários.
     </p>
 
     <h2>Tecnologias Utilizadas</h2>
     <div class="d-flex justify-content-center">
         <div class="tech-container">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg" alt="PostgreSQL Logo">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg"
+                alt="PostgreSQL Logo">
         </div>
         <div class="tech-container">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg" alt="PHP Logo">
@@ -107,14 +102,18 @@
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" alt="Laravel Logo">
         </div>
         <div class="tech-container">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" alt="Bootstrap Logo">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg"
+                alt="Bootstrap Logo">
         </div>
     </div>
 
-    <h2>Considerações Finais</h2>
-    <p>
-        Em resumo, este projeto web representa o comprometimento da equipe de desenvolvimento com a excelência em cada etapa
-        do processo de criação de um site, desde a escolha das tecnologias até a implementação dos recursos mais avançados,
-        visando proporcionar aos usuários uma experiência única e inesquecível.
-    </p>
+    <h2>Repositório no Github</h2>
+    <div class="image-container">
+        <a class="text-decoration-none text-black" href="https://github.com/mateusseiboth/cutuCarLaravel">
+            <img class="round-image"
+                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg"
+                alt="link do github">
+            <p>Ver o projeto</p>
+        </a>
+    </div>
 @endsection
