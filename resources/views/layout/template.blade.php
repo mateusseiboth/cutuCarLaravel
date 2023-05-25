@@ -21,6 +21,7 @@
     <style>
         body {
             background: #eee;
+            overflow: hidden;
         }
 
         #side_nav {
@@ -148,7 +149,7 @@
             <ul class="list-unstyled px-2 flex-column mb-auto">
                 <li class="side-items">
                     <a href="/about" class="text-decoration-none px-3 py-2 d-block" aria-current="page">
-                        <span><i class="fa-sharp fa-solid fa-gauge"></i></span>
+                        <span><i class="fa-solid fa-circle-info"></i></span>
                         Sobre
                     </a>
                 </li>
