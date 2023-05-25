@@ -6,6 +6,7 @@ Este projeto foi desenvolvido como atividade da disciplina de Web III do curso d
 
 - [Autores](#-autores)
 - [Pré-requisitos e observações](#-pré-requisitos-e-observações)
+- [Como instalar](#instalação)
 - [Estrutura](#-estrutura)
 - [Schemas](#-schemas)
   - [Carro](#carro)
@@ -29,16 +30,20 @@ Este projeto foi desenvolvido como atividade da disciplina de Web III do curso d
 - 🐘 [PHP](https://www.php.net/)
 - 🐘 [Laravel](https://laravel.com/)
 
-### Usuário de testes
-
-| Usuário  | Senha |
-|----------|-------|
-| osshiro  | teste |
-
 ### Cadastros criados
 
 - Número de cadastros com relacionamento: **2**
 - Número de cadastros simples: **4**
+
+<a name="instalação"></a>
+## Como instalar
+
+- Clone este repositório com Git clone;
+- Faça uma cópia do arquivo .env.exemple e renomei para .env;
+- Modifique os paramêtros de conexão com o banco e salve;
+- Execute com o comando php artisan serve;
+- No primeiro uso o sistema irá verificar as tabelas necessárias e caso algo esteja faltando o setup inicial fará a correção;
+- Crie seu usuário e senha durante o assistente de configuração e depois faça login.
 
 ## 🏗 Estrutura
 
