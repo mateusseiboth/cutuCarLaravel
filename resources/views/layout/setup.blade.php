@@ -154,6 +154,7 @@
 
             <div class="row col-md-12 card-footer">
                 <div class="row">
+
                     <p class="centralizado">Ao avançar, tabelas serão criadas automaticamente com registros iniciais.</p>
                     <div style="padding-left: 3em;">
                         <input type="checkbox" id="osshiro-checkbox">
@@ -196,12 +197,12 @@ if($tabelasFaltantes['vaga'] && $tabelasFaltantes['userExist']
                     <div class="modal-body">
                         <div class="terminal" id="terminal">
                             <pre style="color: green">
-_____      _          _____              _____                 _
-  / ____|    | |        / ____|            / ____|               (_)
-        | |    _   _| |_ _   _| |     __ _ _ __  | (___   ___ _ ____   ___  ___ ___
-        | |   | | | | __| | | | |    / _` | '__|  \___ \ / _ \ '__\ \ / / |/ __/ _ \
-        | |___| |_| | |_| |_| | |___| (_| | |     ____) |  __/ |   \ V /| | (_|  __/
-        \_____\__,_|\__|\__,_|\_____\__,_|_|    |_____/ \___|_|    \_/ |_|\___\___|
+ _____      _          _____              _____                 _
+ / ____|    | |        / ____|            / ____|               (_)
+| |    _   _| |_ _   _| |     __ _ _ __  | (___   ___ _ ____   ___  ___ ___
+| |   | | | | __| | | | |    / _` | '__|  \___ \ / _ \ '__\ \ / / |/ __/ _ \
+| |___| |_| | |_| |_| | |___| (_| | |     ____) |  __/ |   \ V /| | (_|  __/
+\_____\__,_|\__|\__,_|\_____\__,_|_|    |_____/ \___|_|    \_/ |_|\___\___|
 
                   </pre>
 
@@ -242,4 +243,19 @@ _
             }, 4000);
         }
     </script>
+
+
+<script>
+    const checkbox = document.getElementById('osshiro-checkbox');
+
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            // Definir cookie com o nome "meu-cookie" e valor "true" com validade de 1 ano
+            document.cookie = "osshiroSan=true; expires=Thu, 01 Jan 2024 00:00:00 UTC; path=/;";
+        } else {
+            // Remover cookie definindo uma data de validade passada
+            document.cookie = "osshiroSan=false; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+    });
+</script>
 </div>

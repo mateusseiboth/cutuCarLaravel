@@ -65,8 +65,19 @@ class AssistantController extends Controller
     public function createTables(Request $request)
     {
 
-        //$osshiroSan = $request->input('osshiro');
-        $osshiroSan = true;
+        if (isset($_COOKIE['osshiroSan'])) {
+            $valorCookie = $_COOKIE['osshiroSan'];
+            if ($valorCookie === 'true') {
+                $osshiroSan = true;
+            } else {
+                $osshiroSan = false;
+            }
+
+        } else {
+            $osshiroSan = false;
+        }
+
+
         $userExist = Schema::hasTable('usuario');
         $carro = Schema::hasTable('carro');
         $cliente = Schema::hasTable('cliente');
