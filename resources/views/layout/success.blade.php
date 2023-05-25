@@ -21,67 +21,7 @@
             background: #eee;
         }
 
-        #side_nav {
-            background: rgb(2, 112, 202);
-            min-width: 250px;
-            max-width: 250px;
-        }
 
-        .content {
-            min-height: 100vh;
-            width: 100%;
-            padding-left: 10em;
-            padding-right: 10em;
-            padding-top: 2em;
-        }
-
-        hr.h-color {
-            background: #eee;
-        }
-
-        .sidebar li.active {
-            background: #eee;
-            border-radius: 8px;
-        }
-
-        .sidebar li.active a,
-        .sidebar li.active a:hover {
-            color: #000;
-            background: #fff;
-            border-radius: 8px;
-        }
-
-        .sidebar li a {
-            color: #fff;
-            transition: all 0.3s;
-        }
-
-        .sidebar li a:hover {
-            background: rgb(35, 150, 245);
-            border-radius: 8px;
-        }
-
-        #titulo {
-            margin-top: 0.5em;
-            margin-bottom: 1.5em;
-        }
-
-        #titulo span {
-            font-size: 1.5em;
-        }
-
-        #cutu {
-            color: rgb(2, 112, 202)
-        }
-
-        .side-items {
-            margin-bottom: 0.5em;
-            font-size: 1.1em;
-        }
-
-        .side-items span {
-            margin-right: 0.5em;
-        }
 
         .card {
             animation: appear 400ms backwards;
@@ -151,22 +91,23 @@
         <div class="card-header">
             <h4 style="text-align: center;">
                 <span><i class="fa-solid fa-car-on" style="font-size: 1.2em;"></i></span>
-                <div>E voalá</div>
+                <div>E sem mais delongas...</div>
             </h4>
         </div>
 
 
         <div class="card-body">
+            <div class="sucesso" style="margin-top: 2em; margin-bottom: 2em;">
+                <i class="fa-sharp fa-solid fa-circle-check" style="color: #00ff1e; font-size: 5em;"></i>
+                <h1 class="card-title mt-2 mb-4"> Tudo certo!</h1>
+            </div>
 
-            <h1 class="card-title mt-2 mb-4"><i class="fa-sharp fa-solid fa-circle-check fa-2xl"
-                    style="color: #00ff1e;"></i> Tudo certo!</h1>
-                <hr>
-            <p class="card-text mt-2">Agradeçemos que tenha escolhido o CutuCAR como seu gerenciador de estacionamento.
-                Apenas clique abaixo para continuar e iremos te direcionar para a tela de login</p>
+            <hr>
+            <p class="card-text mt-2">Obrigado por escolher o CutuCAR! Clique abaixo para continuar e ir para a tela de login.</p>
 
             <div class="row col-md-4 ms-auto me-auto text-center ">
-                <a type="button" class="link-sem-decoracao" href="{{route('login')}}">
-                    <i class="fa-solid fa-circle-arrow-right fa-2xl" style="color: rgb(2, 112, 202);"></i>
+                <a type="button" class="link-sem-decoracao" href="{{ route('login') }}">
+                    <i class="fa-solid fa-circle-arrow-right" style="color: rgb(2, 112, 202); font-size: 3em"></i>
                 </a>
             </div>
 
