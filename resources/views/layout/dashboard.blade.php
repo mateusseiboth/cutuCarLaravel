@@ -46,7 +46,7 @@
                         <i class="fa-solid fa-user-group"
                             style="font-size: 3rem; margin-bottom: 1rem; margin-top: 1rem;"></i>
                         <h5 class="card-title">Clientes Cadastrados</h5>
-                        <h1 class="card-text font-weight-bold">{{ $clientesCount }}</h1>
+                        <h1 class="card-text font-weight-bold">{{ $clientesCount - 1 }}</h1>
                     </div>
                 </div>
             </a>

@@ -102,6 +102,13 @@
             width: 400px;
         }
 
+        .main-btn-vermelho {
+            background-color: rgb(202, 49, 2);
+            box-shadow: 0 5px 0 rgb(145, 36, 3);
+            margin-bottom: 1.3em;
+            width: 400px;
+        }
+
         button {
             font-weight: bold;
             border-radius: 16px;
@@ -116,7 +123,10 @@
             transform: translateY(5px);
         }
 
-
+        .main-btn-vermelho:active {
+            box-shadow: none;
+            transform: translateY(5px);
+        }
 
         @keyframes appear {
             from {
@@ -177,7 +187,7 @@
 </div>
 
 @else
-<div class="container col-md-6 centralizado" style="margin-top: 1rem">
+<div class="container col-md-6 centralizado" style="margin-top: 2rem">
     <div class="card">
         <h4 class="card-header" style="text-align: center;">
             <span><i class="fa-solid fa-user-secret" style="font-size: 1.2em;"></i></span>
@@ -206,22 +216,21 @@
 
                     <div class="mb-3">
                         <label for="image" class="form-label">Imagem:</label>
-                        <input type="file" class="form-control" id="image" name="image">
+                        <input type="file" class="form-control" id="image" name="image" onchange="previewImage()">
                     </div>
 
                     <!-- Exibição da imagem -->
                     <div class="mb-3" id="image-preview-container" style="display: none;">
-                        <label for="image-preview" class="form-label">Pré-visualização da Imagem:</label>
                         <img id="image-preview" src="#" alt="Pré-visualização da Imagem"
                             style="max-width: 100%; height: auto;">
                     </div>
 
                     <div class="row col-md-12 card-footer">
                         <div class="row">
-                            <p>Não se preocupe pois iremos cuidar de todos os outros detalhes e logo você poderá utilizar o CutuCAR em sua versão mais recente</p>
+                            <p>Não se preocupe, cuidaremos de tudo e logo terá o CutuCAR atualizado.</p>
                         </div>
                         <div class="row col-md-4">
-                            <a href="{{ url()->previous() }}" type="button" class="main-btn btn bg-danger">
+                            <a href="{{ url()->previous() }}" type="button" class="main-btn-vermelho btn bg-danger text-white">
                                 Voltar
                             </a>
                         </div>
@@ -240,3 +249,23 @@
     </div>
 </div>
 @endif
+
+<script>
+    function previewImage() {
+        var previewContainer = document.getElementById('image-preview-container');
+        var previewImage = document.getElementById('image-preview');
+        var fileInput = document.getElementById('image');
+
+        previewContainer.style.display = 'block';
+
+        var file = fileInput.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            previewImage.setAttribute('src', e.target.result);
+        }
+
+        reader.readAsDataURL(file);
+    }
+</script>
+</html>

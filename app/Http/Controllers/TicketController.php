@@ -8,8 +8,7 @@ use App\Models\Ticket;
 use App\Models\Carro;
 use App\Models\Tipo;
 use App\Models\Vagas;
-use Illuminate\Support\Facades\View;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class TicketController extends Controller
 {
@@ -68,4 +67,11 @@ class TicketController extends Controller
         $result = DB::select('select inserir_ticket(?,?,?,?)', [$carro_id, $vaga_id, $tipo_id, true]);
         return redirect()->back()->with('success', 'Vaga preenchida com sucesso!');
     }
+
+    function relatorio() {
+        $tickets = Ticket::where('estado', false)->orderByRaw('id')->get();
+        //return view('relatorio', compact('tickets'));
+        $pdf = Pdf::loadView('relatorio', compact('tickets'));
+        return $pdf->download('tickets.pdf');
+      }
 }

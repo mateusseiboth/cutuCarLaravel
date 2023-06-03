@@ -11,9 +11,18 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <style>
-
         .ms-n5 {
             margin-left: -40px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Define a cor e a opacidade do overlay */
         }
     </style>
 
@@ -69,23 +78,28 @@
 
                                 </div>
                             </div>
+
                             <div class="col-lg-6 d-flex align-items-center"
-                                style=" background-size: cover;
-                                background-image: url('{{ asset('images/contemplative-reptile.jpeg') }}');">
-                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                                    <h4 class="mb-4">Somos mais que uma dupla, somos dois</h4>
-                                    <p class="small mb-0">Juntando o conhecimento do Flávio em faltar aulas e a baixa
-                                        capacidade
-                                        cognitiva do Mateus, formamos uma dupla que não tem medo de nada, nem de
-                                        ninguém.
-                                    </p>
-                                    <p class="small mb-0">Desenvolvemos esse projeto utilizando suor, sangue, lagrimas e
-                                        muito café.
-                                        Nosso objetivo é entregar um projeto que atenda as necessidades do trabalho para
-                                        que não sejamos reprovados.
-                                    </p>
+                                style="background-size: cover;
+                                                       background-image: url('{{ asset('images/banner-estacione.jpg') }}');
+                                                       position: relative;">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4"
+                                    style="background-color: rgba(0, 0, 0, 0.5);">
+                                    <h4 class="mb-4"><strong>Somos mais que uma dupla, somos dois</strong></h4>
+                                    <p class="small mb-0" style="font-size: 1em;"><strong>
+                                        Juntando o conhecimento do Flávio em faltar aulas e a baixa
+                                            capacidade cognitiva do Mateus, formamos uma dupla que não tem medo de nada, nem
+                                            de ninguém.
+                                    </strong></p>
+                                    <p class="small mb-0" style="font-size: 1em;"><strong>
+                                        Desenvolvemos esse projeto utilizando suor, sangue, lágrimas e
+                                            muito café. Nosso objetivo é entregar um projeto que atenda às necessidades do
+                                            trabalho para que não sejamos reprovados.
+                                    </strong></p>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
