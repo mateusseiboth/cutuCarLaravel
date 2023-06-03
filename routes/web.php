@@ -51,6 +51,9 @@ Route::get('/tickets/{id}', function ($id) {
     return $ticketController->deletar($id);
 })->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth');
 
+Route::get('/ticket/relatorio', 'App\Http\Controllers\TicketController@relatorio')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth');
+
+
 // Admin
 Route::get('/admin', 'App\Http\Controllers\AdminController@listar')->name("admin")->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth');
 
