@@ -134,7 +134,7 @@
     </style>
 </head>
 
-<body>
+<body onLoad="carregarTema()">
 
     <div class="main-container d-flex">
         <div class="sidebar d-flex flex-column" id="side_nav" style="z-index: 999999999">
@@ -191,11 +191,18 @@
                         Histórico
                     </a>
                 </li>
+                <li class="side-items">
+                    <a class="text-decoration-none px-3 py-2 d-block" onclick="trocarTema()">
+                        <span><i id="brilho" class='fa-solid fa-sun'></i></span>
+                        Clica aqui na moral
+                      </a>
+                </li>
             </ul>
 
             <hr class="h-color mx-2">
 
             <ul class="list-unstyled">
+
                 <li class="dropdown">
                     <a href="#" class="text-decoration-none px-3 py-2 d-block" id="dropdownUser1"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -267,5 +274,7 @@
     </script>
 
 </body>
+
+<script src="{{ asset('js/tema.js') }}"></script>
 
 </html>
