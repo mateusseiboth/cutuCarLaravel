@@ -1,66 +1,106 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# CutuCar Web App 🚘
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este projeto foi desenvolvido como atividade da disciplina de Web III do curso de Sistemas para Internet. Trata-se de um sistema CRUD desenvolvido em PHP que tem como finalidade gerenciar as vagas de um estacionamento. Com ele, é possível realizar operações de criação, leitura, atualização e exclusão de informações sobre os clientes, carros, vagas, tickets e tipos de veículos.
 
-## About Laravel
+## 🔖 Sumário
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Autores](#-autores)
+- [Pré-requisitos e observações](#-pré-requisitos-e-observações)
+- [Como instalar](#instalação)
+- [Estrutura](#-estrutura)
+- [Schemas](#-schemas)
+  - [Carro](#carro)
+  - [Cliente](#cliente)
+  - [Ticket](#ticket)
+  - [Tipo](#tipo)
+  - [Usuário](#usuário)
+  - [Vaga](#vaga)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 👥 Autores
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+| <img src="https://avatars.githubusercontent.com/u/14907837?v=4" width=115> | <img src="https://avatars.githubusercontent.com/u/117425361?v=4" width=115> | <img src="https://avatars.githubusercontent.com/u/14957082?s=200&v=4" width=115> |
+| :------------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
+|           [Mateus Seiboth](https://github.com/mateusseiboth)           |              [Flavio Henrique](https://github.com/flaviojrdev)              |               [ChatGPT](https://github.com/openai)                |
 
-## Learning Laravel
+## 🧰 Pré-requisitos e observações
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Tecnologias
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- 🐘 [PostgreSQL](https://www.postgresql.org/)
+- 🐘 [PHP](https://www.php.net/)
+- 🐘 [Laravel](https://laravel.com/)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Cadastros criados
 
-## Laravel Sponsors
+- Número de cadastros com relacionamento: **2**
+- Número de cadastros simples: **4**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<a name="instalação"></a>
+## Como instalar
 
-### Premium Partners
+- Clone este repositório com Git clone;
+- Faça uma cópia do arquivo .env.exemple e renomei para .env;
+- Modifique os paramêtros de conexão com o banco e salve;
+- Execute com o comando php artisan serve;
+- No primeiro uso o sistema irá verificar as tabelas necessárias e caso algo esteja faltando o setup inicial fará a correção;
+- Crie seu usuário e senha durante o assistente de configuração e depois faça login.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## 🏗 Estrutura
 
-## Contributing
+O projeto segue uma estrutura MVC com as seguintes pastas:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- 📁 **app**: Contém as classes e funções que se relacionam com o banco de dados.
+- 📁 **resources/views:**: Contém as páginas HTML que são exibidas aos usuários do sistema.
+- 📁 **app/Http/Controllers**: Contém os controladores que gerenciam as requisições do usuário e fazem a intermediação entre a camada de modelo e a camada de visualização.
+- 📁 **app/Http/Middleware**: Contém os middleware que verificam a autenticação do usuário e configuração de tabelas do sistemas.
+- 📁 **public/js**: Contém os arquivos JavaScript que são usados na construção da interface do usuário.
+- 📁 **public/img**: Contém as imagens utilizadas no projeto.
 
-## Code of Conduct
+## 🧱 Schemas
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Carro
+| Chave     | Tipo de dado | 
+|-----------|-------------|
+| id        | `integer` (primary key) | 
+| placa     | `varchar` | 
+| cliente_id| `integer` (foreign key)|
 
-## Security Vulnerabilities
+### Cliente
+| Chave     | Tipo de dado | 
+|-----------|-------------|
+| id        | `integer` (primary key) | 
+| nome      | `varchar` | 
+| cpf       | `varchar` | 
+| telefone  | `varchar` | 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Ticket
+| Chave     | Tipo de dado | 
+|-----------|-------------|
+| id        | `integer` (primary key) | 
+| carro_id  | `integer` | 
+| vaga_id   | `integer` (foreign key)| 
+| tipo_id   | `integer` (foreign key)| 
+| hora_entrada | `timestamp` | 
+| estado    | `boolean` | 
+| hora_saida| `timestamp` | 
+| total_pago| `numeric` | 
 
-## License
+### Tipo
+| Chave     | Tipo de dado | 
+|-----------|-------------|
+| id        | `integer` (primary key) | 
+| preco     | `numeric` | 
+| descr     | `varchar` | 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Usuário
+| Chave     | Tipo de dado | 
+|-----------|-------------|
+| id        | `integer` (primary key) | 
+| username  | `varchar` | 
+| password  | `varchar` | 
+
+### Vaga
+| Chave     | Tipo de dado | 
+|-----------|-------------|
+| id        | `integer` (primary key) | 
+| estado    | `boolean` |
