@@ -51,6 +51,9 @@ Route::get('/tickets/{id}', function ($id) {
     return $ticketController->deletar($id);
 })->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth');
 
+Route::get('/ticket/relatorio', 'App\Http\Controllers\TicketController@relatorio')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth');
+
+
 // Admin
 Route::get('/admin', 'App\Http\Controllers\AdminController@listar')->name("admin")->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth');
 
@@ -63,7 +66,7 @@ Route::post('/usuarios/criar', 'App\Http\Controllers\UsuarioController@criarUsua
 Route::delete('/usuarios/{id}', 'App\Http\Controllers\UsuarioController@deletar')->middleware('App\Http\Middleware\CheckConfig')->middleware('App\Http\Middleware\CheckAuth')->name('usuarios.deletar');
 
 //Assistente
-Route::get('/assistant/createTables', 'App\Http\Controllers\AssistantController@createTables')->name('criarTabela');
+Route::get('/assistant/createTables/', 'App\Http\Controllers\AssistantController@createTables')->name('criarTabela');
 Route::get('/assistant/check', 'App\Http\Controllers\AssistantController@checkTables')->name('tabelas');
 Route::get('/assistant/checkSuccess', 'App\Http\Controllers\AssistantController@checkSuccess')->name('check');
 Route::get('/assistant/user', 'App\Http\Controllers\AssistantController@checkUser')->name('firstUser');

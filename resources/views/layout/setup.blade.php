@@ -21,68 +21,6 @@
             background: #eee;
         }
 
-        #side_nav {
-            background: rgb(2, 112, 202);
-            min-width: 250px;
-            max-width: 250px;
-        }
-
-        .content {
-            min-height: 100vh;
-            width: 100%;
-            padding-left: 10em;
-            padding-right: 10em;
-            padding-top: 2em;
-        }
-
-        hr.h-color {
-            background: #eee;
-        }
-
-        .sidebar li.active {
-            background: #eee;
-            border-radius: 8px;
-        }
-
-        .sidebar li.active a,
-        .sidebar li.active a:hover {
-            color: #000;
-            background: #fff;
-            border-radius: 8px;
-        }
-
-        .sidebar li a {
-            color: #fff;
-            transition: all 0.3s;
-        }
-
-        .sidebar li a:hover {
-            background: rgb(35, 150, 245);
-            border-radius: 8px;
-        }
-
-        #titulo {
-            margin-top: 0.5em;
-            margin-bottom: 1.5em;
-        }
-
-        #titulo span {
-            font-size: 1.5em;
-        }
-
-        #cutu {
-            color: rgb(2, 112, 202)
-        }
-
-        .side-items {
-            margin-bottom: 0.5em;
-            font-size: 1.1em;
-        }
-
-        .side-items span {
-            margin-right: 0.5em;
-        }
-
         .card {
             animation: appear 400ms backwards;
             transition: all 300ms;
@@ -108,7 +46,12 @@
             padding: 12px 16px;
             transition: all 0.1s;
             border: none;
-            color: #fff;
+            color: #ffffff;
+        }
+
+        .main-btn:hover {
+            background-color: rgb(2, 112, 202);
+            box-shadow: 0 5px 0 rgb(4, 78, 139);
         }
 
         .main-btn:active {
@@ -132,7 +75,7 @@
         }
 
         .link-sem-decoracao:hover {
-            color: #fff;
+            color: #ffffff;
         }
 
         .link-sem-decoracao:hover .card {
@@ -165,66 +108,69 @@
     </style>
 </head>
 
-<div class="container col-md-6 centralizado" style="margin-top: 1rem">
+<div class="container col-md-6 " style="margin-top: 2rem">
     <div class="card">
         <h4 class="card-header" style="text-align: center;">
             <span><i class="fa-solid fa-database" style="font-size: 1.2em;"></i></span>
-            <div class="">O primeiro passo nós demos</div>
+            <div class="">O primeiro passo foi dado</div>
         </h4>
 
-
-
         <div class="card-body">
-            <div class="row">
-                <p>Atualmenta seu banco de dados está com a seguinte configuração de tabelas</p>
+            <div class="row centralizado" style="margin-top: 1.5em;">
+                <p>Atualmente seu banco de dados está com a seguinte configuração de tabelas</p>
             </div>
-            <div class="row">
-                {!! $tabelasFaltantes['carro']
-                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>"
-                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>" !!}
-            </div>
-            <div class="row">
-                {!! $tabelasFaltantes['cliente']
-                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>"
-                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>" !!}
-            </div>
-            <div class="row">
-                {!! $tabelasFaltantes['ticket']
-                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>"
-                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>" !!}
-            </div>
-            <div class="row">
-                {!! $tabelasFaltantes['tipo']
-                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>"
-                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>" !!}
-            </div>
-            <div class="row">
-                {!! $tabelasFaltantes['vaga']
-                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>"
-                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>" !!}
-            </div>
-            <div class="row">
-                {!! $tabelasFaltantes['userExist']
-                    ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>"
-                    : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>" !!}
+            <div class="tabelas-banco" style="margin-bottom: 1.5em; display: flex; flex-direction: column; align-items: center;">
+                <div class="row">
+                    {!! $tabelasFaltantes['carro']
+                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>"
+                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de carros</i>" !!}
+                </div>
+                <div class="row">
+                    {!! $tabelasFaltantes['cliente']
+                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>"
+                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de clientes</i>" !!}
+                </div>
+                <div class="row">
+                    {!! $tabelasFaltantes['ticket']
+                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>"
+                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tickets</i>" !!}
+                </div>
+                <div class="row">
+                    {!! $tabelasFaltantes['tipo']
+                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>"
+                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de tipos</i>" !!}
+                </div>
+                <div class="row">
+                    {!! $tabelasFaltantes['vaga']
+                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>"
+                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de vagas</i>" !!}
+                </div>
+                <div class="row">
+                    {!! $tabelasFaltantes['userExist']
+                        ? "<i class='fa-solid fa-circle-check' style='color: green; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>"
+                        : "<i class='fa-solid fa-circle-xmark' style='color: #ff0000; font-size: 0.75rem;  margin-bottom: 1rem; margin-top: 1rem;'>Tabela de usuarios</i>" !!}
+                </div>
             </div>
 
             <div class="row col-md-12 card-footer">
                 <div class="row">
-                    <p>Ao clicar em avançar você irá criar as tabelas faltantes de forma automática. Além disso será
-                        feita a inserção dos registros iniciais</p>
-                    <p class="text-muted">Obs: Para o caso do Osshiro (release de entrega) a inserção faz o cadastro de
-                        dois itens de cada tabela</p>
+
+                    <p class="centralizado">Ao avançar, tabelas serão criadas automaticamente com registros iniciais.</p>
+                    <div style="padding-left: 3em;">
+                        <input type="checkbox" id="osshiro-checkbox">
+                        <label for="osshiro-checkbox">Sou o Osshiro</label>
+                        <p class="text-muted">Obs: Osshiro (release de entrega) cadastra dois itens por tabela.</p>
+                    </div>
                 </div>
 
 
-                <div class="row col-md-4">
+                {{-- <div class="row col-md-4">
                     <a href="{{ url()->previous() }}" type="button" class="main-btn btn bg-danger">
                         Voltar
                     </a>
-                </div>
-                <div class="row col-md-4 ms-auto text-end">
-                    <a type="button" class="main-btn btn"
+                </div> --}}
+                <div class="centralizado">
+                    <a type="button" class="main-btn btn text-white centralizado"
                         @php
 if($tabelasFaltantes['vaga'] && $tabelasFaltantes['userExist']
                                 && $tabelasFaltantes['ticket']
@@ -244,60 +190,72 @@ if($tabelasFaltantes['vaga'] && $tabelasFaltantes['userExist']
 
     </div>
 
-    @if(request()->path() != 'assistant/checkSuccess')
-    <div class="modal fade" id="asciiModal" tabindex="-1" aria-labelledby="asciiModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="terminal" id="terminal">
-                    <pre style="color: green">
-_____      _          _____              _____                 _
-  / ____|    | |        / ____|            / ____|               (_)
-        | |    _   _| |_ _   _| |     __ _ _ __  | (___   ___ _ ____   ___  ___ ___
-        | |   | | | | __| | | | |    / _` | '__|  \___ \ / _ \ '__\ \ / / |/ __/ _ \
-        | |___| |_| | |_| |_| | |___| (_| | |     ____) |  __/ |   \ V /| | (_|  __/
-        \_____\__,_|\__|\__,_|\_____\__,_|_|    |_____/ \___|_|    \_/ |_|\___\___|
+    @if (request()->path() != 'assistant/checkSuccess')
+        <div class="modal fade" id="asciiModal" tabindex="-1" aria-labelledby="asciiModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="terminal" id="terminal">
+                            <pre style="color: green">
+ _____      _          _____              _____                 _
+ / ____|    | |        / ____|            / ____|               (_)
+| |    _   _| |_ _   _| |     __ _ _ __  | (___   ___ _ ____   ___  ___ ___
+| |   | | | | __| | | | |    / _` | '__|  \___ \ / _ \ '__\ \ / / |/ __/ _ \
+| |___| |_| | |_| |_| | |___| (_| | |     ____) |  __/ |   \ V /| | (_|  __/
+\_____\__,_|\__|\__,_|\_____\__,_|_|    |_____/ \___|_|    \_/ |_|\___\___|
 
                   </pre>
 
 
 
 
-<p style="color: green">Booting database...</p>
-                  <pre  style="color: green" class="cursor">
+                            <p style="color: rgb(0, 255, 0)">Booting database...</p>
+                            <pre style="color: rgb(0, 255, 0)" class="cursor">
 _
                 </pre>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-@endif
+    @endif
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+
+    <script>
+        var url = window.location.href;
+        var relevantPart = url.substring(url.indexOf("/assistant"));
+
+        // Verificar se a URL contém "/assistant/check" e não contém "/assistant/checkStatus"
+        if (!relevantPart.includes("/assistant/checkStatus")) {
+            // Mostrar a modal
+            var asciiModal = new bootstrap.Modal(document.getElementById('asciiModal'));
+            asciiModal.show();
+
+            // Aguardar 2 segundos antes de fechar a modal
+            setTimeout(function() {
+                asciiModal.hide();
+            }, 4000);
+        }
+    </script>
 
 
 <script>
+    const checkbox = document.getElementById('osshiro-checkbox');
 
-var url = window.location.href;
-    var relevantPart = url.substring(url.indexOf("/assistant"));
-
-    // Verificar se a URL contém "/assistant/check" e não contém "/assistant/checkStatus"
-    if (!relevantPart.includes("/assistant/checkStatus")) {
-        // Mostrar a modal
-        var asciiModal = new bootstrap.Modal(document.getElementById('asciiModal'));
-        asciiModal.show();
-
-        // Aguardar 2 segundos antes de fechar a modal
-        setTimeout(function() {
-            asciiModal.hide();
-        }, 4000);
-    }
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            // Definir cookie com o nome "meu-cookie" e valor "true" com validade de 1 ano
+            document.cookie = "osshiroSan=true; expires=Thu, 01 Jan 2024 00:00:00 UTC; path=/;";
+        } else {
+            // Remover cookie definindo uma data de validade passada
+            document.cookie = "osshiroSan=false; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+    });
 </script>
 </div>
-
-

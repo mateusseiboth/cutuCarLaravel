@@ -9,13 +9,19 @@
 
     <!-- Botão de adicionar -->
     @if ($botao)
+
         <div class='centralizado'>
             <button type="button" class="main-btn" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-top: 1.2em;">
                 Novo ticket
             </button>
         </div>
+
     @else
-        <div class='centralizado' style="margin-bottom: 4em;"></div>
+    <div class='centralizado'>
+        <a href="/ticket/relatorio" class="main-btn btn text-reset text-decoration-none" style="margin-top: 1.2em;">
+            Relatório
+        </a>
+    </div>
     @endif
 
     <!-- Mensagem de sucesso -->
